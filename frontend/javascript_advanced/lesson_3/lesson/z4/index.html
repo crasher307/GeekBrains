@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link type="text/css" rel="stylesheet" href="style.css"/>
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+<div class="container login hide">
+    <h2>Login</h2>
+    <input class="username" placeholder="username" type="text" value="">
+    <input class="password" placeholder="password" type="password" value="">
+    <div class="errorMessage hide"></div>
+    <button data-type="login">Login</button>
+    <div class="links">
+        <span data-type="form-signin">Sign in</span>
+    </div>
+</div>
+<div class="container signin hide">
+    <h2>Sign in</h2>
+    <input class="username" placeholder="username" type="text" value="">
+    <input class="password" placeholder="password" type="password" value="">
+    <input class="passwordRepeat" placeholder="password repeat" type="password" value="">
+    <div class="errorMessage hide"></div>
+    <button data-type="signin">Sign in</button>
+    <div class="links">
+        <span data-type="form-login">Login</span>
+    </div>
+</div>
+<div class="container hello hide">
+    <h2>Hello</h2>
+    <button data-type="exit">Exit</button>
+</div>
+
+</body>
+</html>

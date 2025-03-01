@@ -1,0 +1,48 @@
+// Блок "Преимущества"
+.advantages {
+  @include flexRow(10px);
+  @include color($color-7, $color-2);
+  margin-bottom: (min(0, -$content-gap));
+  cursor: default;
+
+  .delivery {
+    @include icon($advantages-icon, "../source/icons/car-active.svg");
+  }
+
+  .sales {
+    @include icon($advantages-icon, "../source/icons/percent-active.svg");
+  }
+
+  .quality {
+    @include icon($advantages-icon, "../source/icons/crown-active.svg");
+  }
+
+  & > * {
+    @include flexColumn(15px);
+    transition: all 0.2s ease-in-out;
+    padding: 100px 20px;
+    max-width: 360px;
+    text-align: center;
+
+    .name {
+      @include font(20px);
+    }
+
+    &:is(:hover, :focus) {
+      filter: drop-shadow(0 3px 5px #{$color-active-focus}bb);
+      transform: scale(1.05);
+    }
+  }
+}
+
+// Tablet
+@media (max-width: $size-md), (max-width: $size-sm) and (orientation: portrait) {
+  .advantages {
+    @include flexColumn($content-gap, center);
+    padding: ($content-gap + 20px) max(10px, $con-pd-tablet);
+
+    & > * {
+      padding: 10px 20px;
+    }
+  }
+}

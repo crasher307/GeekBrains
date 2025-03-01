@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="ru">
+<head>
+    <title>Главная</title>
+    <!-- meta http-equiv -->
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- icon -->
+    <link type="image/x-icon" rel="shortcut icon" href="../source/other/favicon.ico">
+    <!-- style -->
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <!-- javascript -->
+    <script type="text/javascript" src="../source/config.js"></script>
+    <script type="text/javascript" src="../source/loading.js" async></script>
+</head>
+<body id="app" v-cloak data-loading>
+
+<header>
+    <div class="logo" @click="goPage('main')"></div>
+    <div class="search" @click="newFunction()"></div><!-- TODO добавить поиск -->
+    <div class="menu" id="menu" @click="showMenu = !showMenu">
+        <div v-show="showMenu">
+            <div class="category" v-for="item in categories">
+                <div class="name"
+                     @click="goPage({ category: item.id })">
+                    {{ item.name }}
+                </div>
+                <div class="sub" v-for="subItem in item.sub"
+                     @click="goPage({ category: item.id, subCategory: subItem.id })">
+                    {{ subItem.name }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="profile" @click="goPage('profile')"></div>
+    <div class="basket" :data-count="basket.length" @click="goPage('cart')"></div>
+</header>
+<main>
+    <!-- TODO переделать на компоненты -->
+    <div class="breadcrumbs" v-if="showBreadcrumbs">
+        <div class="name">{{ breadcrumbs.name }}</div>
+        <div class="path" v-if="breadcrumbs.path.length > 0">
+            <div v-for="item in breadcrumbs.path" @click="goPage(item)">{{ item.name }}</div>
+        </div>
+    </div>
+    <div class="promotion" v-if="showPromotion">
+        <div class="image">
+            <img src="../source/other/product-promo.png" alt="product-main">
+        </div>
+        <div class="name">
+            <span>The brand</span>
+            <span>of luxerious <span>fashion</span></span>
+        </div>
+    </div>
+    <div class="offers" v-if="showOffers">
+        <div class="card">
+            <img src="../source/offers/offer-1.png" alt="offer-1">
+            <a href="#">30% off <strong>for women</strong></a>
+        </div>
+        <div class="card">
+            <img src="../source/offers/offer-2.png" alt="offer-2">
+            <a href="#">Hot deal <strong>for men</strong></a>
+        </div>
+        <div class="card">
+            <img src="../source/offers/offer-3.png" alt="offer-3">
+            <a href="#">New arrivals <strong>for kids</strong></a>
+        </div>
+        <div class="card">
+            <img src="../source/offers/offer-4.png" alt="offer-4">
+            <a href="#">Luxirous & trendy <strong>accesories</strong></a>
+        </div>
+    </div>
+    <!-- Main Content -->
+    <div class="registration" v-if="showRegistration">
+        <form action="#" method="post">
+            <span>Your Name</span>
+            <input type="text" name="first_name" placeholder="First Name">
+            <input type="text" name="last_name" placeholder="Last Name">
+            <div class="group-check">
+                <input id="male" type="radio" name="sex" value="Male"><label for="male">Male</label>
+                <input id="female" type="radio" name="sex" value="Female"><label for="female">Female</label>
+                <input id="other" type="radio" name="sex" value="Other"><label for="other">Other</label>
+            </div>
+            <span>Login details</span>
+            <input type="email" name="email" placeholder="Email">
+            <input type="password" name="password" placeholder="Password">
+            <span class="desc">Please use 8 or more characters, with at least 1 number and a mixture of uppercase and lowercase letters</span>
+            <button>Join now</button>
+        </form>
+        <div class="info">
+            <span class="title">Loyalty has its perks</span>
+            <span class="desc">Get in on the loyalty program where you can earn points and unlock serious perks. Starting with these as soon as you join:</span>
+            <span class="props">15% off welcome offer</span>
+            <span class="props">Free shipping, returns and exchanges on all orders</span>
+            <span class="props">$10 off a purchase on your birthday</span>
+            <span class="props">Early access to products</span>
+            <span class="props">Exclusive offers & rewards</span>
+        </div>
+    </div>
+    <div class="slider card" v-if="showSliderCard">
+        <div class="images">
+            <!-- TODO допилить слайдер -->
+            <div class="prev" href="#"></div>
+            <img class="active" src="../source/other/product-main.png" alt="product-main">
+            <img src="../source/products/product-1.png" alt="product-1">
+            <img src="../source/products/product-2.png" alt="product-2">
+            <div class="next" href="#"></div>
+        </div>
+        <div class="desc">
+            <span class="category">Women collection</span>
+            <span class="title">Moschino cheap and chic</span>
+            <span>Compellingly actualize fully researched processes before proactive outsourcing. Progressively syndicate collaborative architectures before cutting-edge services. Completely visualize parallel core competencies rather than exceptional portals.</span>
+            <span class="price">$561</span>
+            <div class="params">
+                <details class="dropdown">
+                    <summary>Choose color</summary>
+                    <div></div>
+                </details>
+                <details class="dropdown">
+                    <summary>Choose size</summary>
+                    <div></div>
+                </details>
+                <details class="dropdown">
+                    <summary>Quantity</summary>
+                    <div></div>
+                </details>
+            </div>
+            <a class="add" href="#">Add to Cart</a>
+        </div>
+    </div>
+    <div class="products" v-if="showProducts"><!-- TODO нужно сделать нормально -->
+        <div class="name" v-if="getPage === 'main'">
+            <span class="title">Fetured Items</span>
+            <span>Shop for items based on what we featured in this week</span>
+        </div>
+        <div class="sort" v-if="getPage === 'catalog'">
+            <details class="dropdown block full filter">
+                <summary>Filter</summary>
+                <details>
+                    <summary>Category</summary>
+                    <span>Accessories</span>
+                    <span>Bags</span>
+                    <span>Denim</span>
+                    <span>Hoodies & Sweatshirts</span>
+                    <span>Jackets & Coats</span>
+                    <span>Polos</span>
+                    <span>Shirts</span>
+                    <span>Shoes</span>
+                    <span>Sweaters & Knits</span>
+                    <span>T-Shirts</span>
+                    <span>Tanks</span>
+                </details>
+                <details>
+                    <summary>Brand</summary>
+                </details>
+                <details>
+                    <summary>Designer</summary>
+                </details>
+            </details>
+            <details class="dropdown">
+                <summary>Trending now</summary>
+                <div></div>
+            </details>
+            <details class="dropdown check-group">
+                <summary>Size</summary>
+                <div>
+                    <span>XS</span>
+                    <span>S</span>
+                    <span>M</span>
+                    <span>L</span>
+                </div>
+            </details>
+            <details class="dropdown">
+                <summary>Price</summary>
+                <div></div>
+            </details>
+        </div>
+
+
+        <!-- TODO if isProduct >> view(3) && view in category -->
+
+        <div class="card" v-for="item in getProductList()">
+            <div class="add" @click="addToBasket(item.id)">
+                <img :src="item.image.src" :alt="item.image.alt">
+            </div>
+            <div class="desc">
+                <div class="title" @click="goProduct(item.id, category, subCategory)">{{ item.title }}</div>
+                <span>{{ item.desc }}</span>
+                <span class="price">{{ item.price }}</span>
+            </div>
+        </div>
+
+
+        <div class="pages" v-if="this.getPage === 'catalog'">
+            <a class="prev" href="#"></a>
+            <a class="active" href="#">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
+            <a href="#">6.....20</a>
+            <a class="next" href="#"></a>
+        </div>
+        <div class="more" v-if="this.getPage === 'main'">
+            <a href="#">Browse All Product</a>
+        </div>
+    </div>
+    <div class="cart" v-if="showCart">
+        <div class="product-list">
+            <div class="product">
+                <div class="close"></div>
+                <div class="image">
+                    <img src="../source/products/product-3.png" alt="product-3">
+                </div>
+                <div class="desc">
+                    <span class="title">
+                        <span class="name">Mango people</span>
+                        <span class="type">T-shirt</span>
+                    </span>
+                    <span class="props" data-name="price">$300</span>
+                    <span class="props" data-name="color">Red</span>
+                    <span class="props" data-name="size">Xl</span>
+                    <span class="props" data-name="quantity"><input type="number" min="1" value="2"></span>
+                </div>
+            </div>
+            <div class="product">
+                <div class="close"></div>
+                <div class="image">
+                    <img src="../source/products/product-7.png" alt="product-7">
+                </div>
+                <div class="desc">
+                    <span class="title">
+                        <span class="name">Mango people</span>
+                        <span class="type">T-shirt</span>
+                    </span>
+                    <span class="props" data-name="price">$300</span>
+                    <span class="props" data-name="color">Red</span>
+                    <span class="props" data-name="size">Xl</span>
+                    <span class="props" data-name="quantity"><input type="number" min="1" value="2"></span>
+                </div>
+            </div>
+            <div class="buttons">
+                <button>Clear shopping cart</button>
+                <button>Continue shopping</button>
+            </div>
+        </div>
+        <form class="data" action="#" method="post">
+            <div class="fields">
+                <div class="name">Shipping adress</div>
+
+                <input type="text" placeholder="Bangladesh">
+                <input type="text" placeholder="State">
+                <input type="text" placeholder="Postcode / Zip">
+
+                <button>Get a quote</button>
+            </div>
+            <div class="buy">
+                <div class="props" data-name="Sub total">$900</div>
+                <div class="props big" data-name="Grand total">$900</div>
+                <hr>
+                <input type="submit" value="Proceed to checkout">
+            </div>
+        </form>
+    </div>
+    <!-- Main Content / END -->
+    <div class="advantages" v-if="showAdvantages">
+        <div class="delivery">
+            <span class="name">Free Delivery</span>
+            <span>Worldwide delivery on all. Authorit tively morph next-generation innov tion with extensive models.</span>
+        </div>
+        <div class="sales">
+            <span class="name">Sales & discounts</span>
+            <span>Worldwide delivery on all. Authorit tively morph next-generation innov tion with extensive models.</span>
+        </div>
+        <div class="quality">
+            <span class="name">Quality assurance</span>
+            <span>Worldwide delivery on all. Authorit tively morph next-generation innov tion with extensive models.</span>
+        </div>
+    </div>
+    <div class="subscription" v-if="showSubscription">
+        <div class="review">
+            <div class="image">
+                <img src="../source/other/subscription-photo.png" alt="review-photo">
+            </div>
+            <q>Vestibulum quis porttitor dui! Quisque viverra nunc mi, <i>a pulvinar purus condimentum</i></q>
+        </div>
+        <div class="subscribe">
+            <div class="name">
+                <span>Subscribe</span>
+                <span>for our newletter and promotion</span>
+            </div>
+            <form action="#" method="post">
+                <input type="text" placeholder="Enter Your Email">
+                <input type="submit" value="Subscribe">
+            </form>
+        </div>
+    </div>
+    <!-- 404 error -->
+    <div class="error404" v-if="isError">
+        <span class="title">Ошибка 404</span>
+        <span>Страница не найдена</span>
+    </div>
+</main>
+<footer>
+    <div id="copyright" class="copyright">
+        © 2021-{{ new Date().getFullYear() }}  Brand  All Rights Reserved.
+    </div>
+    <div id="social" class="social">
+        <a :class="name" :href="item" target="_blank" v-for="(item, name) in social"></a>
+    </div>
+</footer>
+
+<script type="module" defer>
+    import * as vue from 'https://unpkg.com/vue@3.2.36/dist/vue.esm-browser.prod.js';
+
+    vue.createApp({
+        data() {
+            return {
+                page: 'main',
+                category: null,
+                subCategory: null,
+                product: null,
+                showMenu: false,
+                basket: [], // product id's
+
+                pages: pagesList,
+                categories: categoriesList,
+                products: productsList,
+                social: socialList,
+            }
+        },
+        watch: {
+            page() {
+                document.title = this.pages[this.getPage].title;
+            },
+        },
+        computed: {
+            getPage() {
+                return this.pages[this.page] ? this.page : 'error';
+            },
+            breadcrumbs() {
+                let name;
+                const path = [];
+                if (['catalog', 'product'].includes(this.getPage)) {
+                    if (this.category !== null) {
+                        path.push(
+                            {name: 'Home'},
+                            {name: this.getCategory(this.category).name, category: this.category},
+                        );
+                    }
+                    if (this.product !== null) {
+                        name = this.getProduct(this.product).title;
+                        if (path.length > 0) {
+                            if (this.subCategory !== null) {
+                                path.push({
+                                    name: this.getSubCategory(this.category, this.subCategory).name,
+                                    category: this.category,
+                                    subCategory: this.subCategory,
+                                });
+                            } else {
+                                path.push({
+                                    name: 'New arrivals',
+                                    category: this.category,
+                                });
+                            }
+                        }
+                    } else {
+                        const sub = this.getSubCategory(this.category, this.subCategory);
+                        if (sub.id !== undefined) {
+                            name = sub.name;
+                            path.push({
+                                name,
+                                category: this.category,
+                                subCategory: this.subCategory,
+                            });
+                        } else {
+                            name = 'New arrivals';
+                            path.push({
+                                name,
+                                category: this.category,
+                            });
+                        }
+                    }
+                }
+                if (!name) {
+                    name = this.pages[this.getPage].breadcrumbs || null;
+                }
+                return {name, path};
+            },
+
+            isAuth() {
+                return false; // TODO auth
+            },
+            isError() {
+                return this.getPage === 'error';
+            },
+
+            showBreadcrumbs() {
+                return !!this.breadcrumbs.name;
+            },
+            showPromotion() {
+                return 'main' === this.getPage;
+            },
+            showOffers() {
+                return 'main' === this.getPage;
+            },
+            showRegistration() {
+                return 'registration' === this.getPage;
+            },
+            showSliderCard() {
+                return 'product' === this.getPage;
+            },
+            showProducts() {
+                return ['main', 'catalog', 'product'].includes(this.getPage);
+            },
+            showCart() {
+                return 'cart' === this.getPage;
+            },
+            showAdvantages() {
+                return ['main', 'catalog'].includes(this.getPage);
+            },
+            showSubscription() {
+                return !this.isError;
+            },
+        },
+        methods: {
+            goPage(data) {
+                this.page = 'main';
+                this.category = null;
+                this.subCategory = null;
+                this.product = null;
+
+                if (typeof data === 'string') {
+                    if (data === 'profile' && !this.isAuth) {
+                        this.page = 'registration';
+                    } else {
+                        this.page = data;
+                    }
+                } else if (data.category !== undefined) {
+                    this.page = 'catalog';
+                    this.category = data.category;
+                    if (data.subCategory !== undefined) {
+                        this.subCategory = data.subCategory;
+                    }
+                    if (data.product !== undefined) {
+                        this.page = 'product';
+                        this.product = data.product;
+                    }
+                }
+
+                setTimeout(() => {
+                    window.scrollTo(0, 0);
+                    if (this.showMenu) {
+                        this.showMenu = false;
+                    }
+                }, 100);
+            },
+            goProduct(product, category = null, subCategory = null) {
+                this.goPage('product');
+                this.product = product;
+                this.category = category;
+                this.subCategory = subCategory;
+            },
+
+            getCategory(id) {
+                return this.categories.filter(el => el.id === this.category)[0] || {};
+            },
+            getSubCategory(id, subId) {
+                const sub = this.getCategory(id).sub || [];
+                return sub.filter(el => el.id === this.subCategory)[0] || {};
+            },
+            getProductList() {
+                return this.products; // TODO добавить фильт с категорией
+            },
+            getProduct(id) { // TODO получение данных ьовара
+                return this.products.filter(el => el.id === id)[0] || {};
+            },
+
+            addToBasket(productId) {
+                if (!this.basket.includes(productId)) {
+                    this.basket.push(productId);
+                }
+            },
+
+            newFunction() {
+                console.log('TODO: add new function()');
+            },
+        },
+    }).mount('#app');
+</script>
+
+</body>
+</html>

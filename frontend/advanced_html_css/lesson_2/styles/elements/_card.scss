@@ -1,0 +1,30 @@
+// Карточка товара
+.card {
+  @include flex(start, stretch);
+  @include color($color-2, $color-6);
+  @include font(14px, 300);
+  flex-direction: column;
+  cursor: default;
+
+  strong {
+    @include font(inherit, inherit, $color-active);
+  }
+
+  .title {
+    @include fontUpper(13px, 400, $color-7);
+  }
+
+  .price {
+    @include font(16px, 400, $color-active);
+  }
+
+  & > :not(img) {
+    @include flexColumn(15px);
+    padding: 20px;
+
+    & > img {
+      margin: -20px;
+      max-width: calc(100% + 40px);
+    }
+  }
+}

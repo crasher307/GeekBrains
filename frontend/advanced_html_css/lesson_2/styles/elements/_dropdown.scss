@@ -1,0 +1,108 @@
+// Выпадающий список
+.dropdown {
+  @include flex;
+  @include font(14px, 400, $color-6);
+  width: fit-content;
+  max-width: 360px;
+
+  &.full {
+    width: 100%;
+  }
+
+  summary {
+    @include flex(start, center, 10px);
+    height: 35px;
+    padding: 0 15px;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    &:after {
+      @include flex;
+      background: url("../source/icons/arrow-down.svg") no-repeat center / contain;
+      width: 10px;
+      height: 10px;
+      content: "";
+    }
+  }
+
+  details {
+    width: auto;
+  }
+
+  &[open] {
+    &.block {
+      background: $color-1;
+      box-shadow: 6px 4px 35px #{$color-7}35;
+    }
+
+    &:not(.block) > :not(summary) {
+      @include flexColumn(10px, center);
+      box-shadow: 6px 4px 35px #{$color-7}35;
+      background: $color-1;
+      padding: 15px;
+    }
+
+    & > details {
+      @include flexColumn;
+      margin: 0 15px 15px;
+
+      & > summary {
+        border-left: 5px solid $color-active;
+        border-bottom: 1px solid $color-3;
+        padding: 0 10px;
+
+        &:after {
+          display: none;
+        }
+      }
+
+      & > * {
+        padding: 5px 15px;
+        text-align: left;
+      }
+
+      &[open] > summary {
+        margin-bottom: 15px;
+      }
+
+      & > :last-child:not(summary) {
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  [open], &[open] {
+    & > summary {
+      color: $color-active;
+    }
+  }
+
+  // Blocks
+  &.filter {
+    & > summary:after {
+      background: url("../source/icons/filter.svg") no-repeat center / contain;
+      width: 15px;
+      height: 15px;
+    }
+
+    [open], &[open] {
+      & > summary:after {
+        background: url("../source/icons/filter-active.svg") no-repeat center / contain;
+      }
+    }
+  }
+
+  &.check-group > :not(summary) > * {
+    @include flexRow(10px);
+    align-self: start;
+    padding: 0 10px;
+
+    &:before {
+      //@include flex;
+      border: 1px solid $color-3;
+      width: 13px;
+      height: 13px;
+      content: "";
+    }
+  }
+}

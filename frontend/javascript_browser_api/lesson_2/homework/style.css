@@ -1,0 +1,96 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  gap: 40px;
+  margin: 0;
+  padding: 20px;
+  min-height: 100vh;
+  background: #eee;
+  font-family: sans-serif;
+  font-size: 14px;
+}
+
+.slider {
+  position: relative;
+  flex-direction: column;
+  border-radius: 5px;
+  background: #eee;
+  max-width: 600px;
+  width: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+.slider .hide {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+.slider, .slider .images, .slider .prev, .slider .next, .slider .pointers {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.slider .prev, .slider .next, .slider .pointers {
+  position: absolute;
+  z-index: 10;
+}
+.slider .prev:is(.prev, .next), .slider .next:is(.prev, .next), .slider .pointers:is(.prev, .next) {
+  box-shadow: #fff 0 0 3px 1px;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  opacity: 0.8;
+  overflow: hidden;
+  cursor: pointer;
+}
+.slider .prev:is(.prev, .next):before, .slider .next:is(.prev, .next):before, .slider .pointers:is(.prev, .next):before {
+  position: absolute;
+  background: linear-gradient(45deg, transparent 10%, #ffffff 80%);
+  transform: rotate(225deg);
+  margin-left: 15px;
+  width: 20px;
+  height: 20px;
+  content: "";
+}
+.slider .prev:is(.prev, .next):is(.prev), .slider .next:is(.prev, .next):is(.prev), .slider .pointers:is(.prev, .next):is(.prev) {
+  left: 10px;
+}
+.slider .prev:is(.prev, .next):is(.next), .slider .next:is(.prev, .next):is(.next), .slider .pointers:is(.prev, .next):is(.next) {
+  right: 10px;
+  transform: rotate(180deg);
+}
+.slider .prev:is(.pointers), .slider .next:is(.pointers), .slider .pointers:is(.pointers) {
+  box-shadow: #fff 0 0 5px -1px;
+  border-radius: 10px;
+  gap: 8px;
+  bottom: 10px;
+  padding: 4px;
+  opacity: 0.8;
+}
+.slider .prev:is(.pointers) > *, .slider .next:is(.pointers) > *, .slider .pointers:is(.pointers) > * {
+  display: block;
+  box-shadow: #fff 0 0 3px 1px;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.slider .prev:is(.pointers) > *:is(.active), .slider .next:is(.pointers) > *:is(.active), .slider .pointers:is(.pointers) > *:is(.active) {
+  background: #fff;
+}
+.slider .images {
+  width: inherit;
+}
+.slider .images img {
+  transition: all 0.4s ease-in;
+  width: inherit;
+}
+
+/*# sourceMappingURL=style.css.map */

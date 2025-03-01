@@ -1,0 +1,255 @@
+/* <!-- <editor-folder Imports> --> */
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Open+Sans:wght@300&display=swap');
+
+@import "../source/clear";
+@import "../source/mixins";
+
+@import "styles/vars";
+@import "styles/mixins";
+
+// Элементы
+@import "styles/elements/card"; // Карточка товара
+@import "styles/elements/dropdown"; // Выпадающий список
+
+// Блоки контента
+@import "styles/blocks/breadcrumbs"; // Блок хлебных крошек
+@import "styles/blocks/promotion"; // Промо-блок
+@import "styles/blocks/slider"; // Блок слайдера / карточки товара
+@import "styles/blocks/offers"; // Блок предложений
+@import "styles/blocks/products"; // Блок товаров (основной)
+@import "styles/blocks/advantages"; // Блок "Преимущества"
+@import "styles/blocks/subscription"; // Блок подписки
+@import "styles/blocks/cart"; // Блок корзины
+@import "styles/blocks/registration"; // Блок регистрации
+/* <!-- </editor-folder--> */
+
+/* <!-- <editor-folder Default> --> */
+::selection {
+  background: $color-active;
+  color: $color-1;
+}
+
+::placeholder {
+  color: inherit;
+  opacity: 0.6;
+}
+
+a {
+  transition: color 0.2s ease-in-out;
+  color: $color-active;
+
+  &:is(:hover, :focus) {
+    color: $color-active-focus;
+  }
+}
+
+input {
+  @include flex;
+  @include color($color-1, $color-7);
+  @include font(14px, 400);
+  transition: all 0.2s ease-in-out;
+  padding: 5px 20px;
+
+  &[type=submit] {
+    @include color($color-active, $color-1);
+
+    &:hover, &:focus {
+      @include color($color-active-focus);
+    }
+  }
+}
+
+body {
+  @include flexColumn;
+  @include color($color-1, $color-7);
+  @include font(14px, 400);
+  min-height: 100vh;
+  font-family: Lato, sans-serif;
+  font-style: normal;
+  line-height: normal;
+
+  &[data-loading] {
+    visibility: hidden;
+  }
+}
+/* <!-- </editor-folder--> */
+
+body > * {
+  &, & > *, & > * > * {
+    //border: 1px solid #00ffff40;
+  }
+}
+
+@include contentSize($con-pd-desktop);
+
+header {
+  @include flexRow(max(10px, $content-gap));
+  @include color($color-7);
+  height: $header-height;
+
+  & > * {
+    cursor: pointer;
+  }
+
+  .logo {
+    @include icon($header-icon + 15px, "../source/icons/logo.svg");
+  }
+
+  .search {
+    @include icon($header-icon, "../source/icons/search.svg");
+  }
+
+  /* <!-- <editor-folder Menu> --> */
+  .menu {
+    @include icon($header-icon, "../source/icons/menu.svg");
+    margin-left: auto;
+
+    & > div {
+      @include flexColumn(20px);
+      @include color($color-1, $color-6);
+      box-shadow: 6px 4px 35px #{$color-7}35;
+      position: absolute;
+      top: $header-height;
+      right: $con-pd-desktop;
+      padding: 30px;
+      width: 230px;
+      z-index: 100;
+      cursor: default;
+
+      &:before {
+        @include fontUpper(inherit, 700, $color-7);
+        content: "Menu";
+      }
+
+      .category {
+        @include flexColumn(10px);
+
+        & > * {
+          color: inherit;
+          margin-left: 20px;
+
+          &:is(.name) {
+            @include fontUpper(inherit, inherit, $color-active);
+            margin-left: 0;
+          }
+        }
+      }
+    }
+  }
+
+  input#menu[type=checkbox] {
+    display: none !important;
+
+    &:not(:checked) + label {
+      & > div {
+        display: none;
+      }
+    }
+  }
+  /* <!-- </editor-folder--> */
+
+  .profile {
+    @include icon($header-icon, "../source/icons/profile.svg");
+  }
+
+  .basket {
+    @include icon($header-icon, "../source/icons/basket.svg");
+
+    &:after {
+      @include flex;
+      @include color($color-active, $color-1);
+      position: absolute;
+      border-radius: 50%;
+      margin: (-$header-icon / 1.25) (-$header-icon / 1.15) 0 0;
+      width: $header-icon / 1.53;
+      height: $header-icon / 1.53;
+      font-size: $header-icon / 2.42;
+      content: attr(data-count);
+    }
+  }
+}
+
+main {
+  @include flexColumn($content-gap);
+}
+
+footer {
+  @include flexRow($content-gap);
+  @include color($color-7, $color-1);
+  @include font(16px, 400);
+  min-height: $footer-height;
+  cursor: default;
+
+  & > * {
+    @include flexRow(8px, center);
+    padding: 10px 0;
+    text-align: center;
+  }
+
+  .social {
+    .facebook {
+      @include icon($footer-icon - 16px, "../source/social/facebook.svg");
+    }
+
+    .instagram {
+      @include icon($footer-icon - 16px, "../source/social/instagram.svg");
+    }
+
+    .pinterest {
+      @include icon($footer-icon - 16px, "../source/social/pinterest.svg");
+    }
+
+    .twitter {
+      @include icon($footer-icon - 16px, "../source/social/twitter.svg");
+    }
+
+    & > * {
+      @include color($color-1, $color-7);
+      padding: 8px;
+
+      &:hover, &:focus {
+        background: $color-active;
+
+        &:before {
+          filter: invert(1);
+        }
+      }
+    }
+  }
+}
+
+// Tablet
+@media (max-width: $size-md), (max-width: $size-sm) and (orientation: portrait) {
+  @include contentSize($con-pd-tablet);
+
+  header > .menu > div {
+    right: $con-pd-tablet;
+  }
+}
+
+// Mobile
+@media (max-width: $size-xs), (max-width: $size-sm) and (orientation: landscape) {
+  @include contentSize($con-pd-mobile);
+
+  header {
+    .profile, .basket {
+      display: none;
+    }
+
+    & > .menu > div {
+      padding: max(10px, $content-gap) $con-pd-mobile;
+      left: 0;
+      right: 0;
+      width: auto;
+    }
+  }
+
+  footer {
+    @include flexColumn(0, center);
+
+    .social {
+      padding: 40px 0 30px;
+      order: -1;
+    }
+  }
+}

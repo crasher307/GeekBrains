@@ -1,0 +1,72 @@
+.player {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #333;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 500px;
+  margin: 0 auto;
+}
+.player video {
+  z-index: 1;
+}
+.player * {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  z-index: 2;
+}
+.player .panel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 6px 10px;
+  justify-content: space-between;
+  gap: 6px;
+  background: rgba(51, 119, 187, 0.5019607843);
+}
+.player .panel .volume {
+  margin-left: auto;
+}
+.player .btn {
+  border-radius: 4px;
+}
+.player .btn:before {
+  width: 20px;
+  height: 22px;
+  border-radius: 4px;
+  filter: invert(1);
+  cursor: pointer;
+  content: "";
+}
+.player .btn.play:before {
+  background: url("play.png") no-repeat center center;
+  background-size: contain;
+}
+.player .btn.pause:before {
+  background: url("pause.png") no-repeat center center;
+  background-size: contain;
+}
+.player .btn.center {
+  position: absolute;
+  background: rgba(119, 119, 119, 0.5019607843);
+}
+.player .btn.center:before {
+  width: 40px;
+  height: 44px;
+}
+
+#productTemplate {
+  display: none;
+}
+
+.hidden {
+  display: none;
+}
+
+/*# sourceMappingURL=style.css.map */

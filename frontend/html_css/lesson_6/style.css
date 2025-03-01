@@ -1,0 +1,121 @@
+/* <!-- <editor-folder Base> --> */
+/*** Selection ******************************/
+::selection {
+    background: #061b3f;
+}
+/*** Placeholder ****************************/
+::placeholder {
+    color: #b9b9b9;
+}
+/*** Body ***********************************/
+body {
+    background: #020a18;
+    color: #fff;
+}
+/*** Link ***********************************/
+a {
+    text-decoration: underline #fff;
+    color: #fff;
+}
+/* <!-- </editor-folder--> */
+/* <!-- <editor-folder Site> --> */
+/*** Head ***********************************/
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px !important;
+    background: rgba(255, 255, 255, 0.02);
+    color: inherit;
+}
+header .menu {
+    font-size: 16px !important;
+    font-weight: 600;
+    line-height: 22px;
+    letter-spacing: 0;
+}
+header .menu > a {
+    margin: 0 20px;
+}
+/*** Content ********************************/
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: calc(100vh - 140px) !important;
+    font-size: 18px !important;
+    max-width: 1200px;
+}
+main .info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 0 200px;
+}
+main .info > * {
+    max-width: 496px;
+    margin: 0 10px;
+}
+main .info .subtitle {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 29px;
+    letter-spacing: 0;
+    color: #3a68b8;
+}
+main .info .title {
+    font-size: 55px;
+    font-weight: 800;
+    line-height: 71px;
+    letter-spacing: 0;
+    color: #fff;
+    margin: 0 0 30px;
+}
+main .info .desc {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 29px;
+    letter-spacing: 0;
+    color: #fff;
+    margin: 0 0 50px;
+}
+main .info .buttons {
+    display: flex;
+    margin: 10px -10px 0;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 27px;
+    letter-spacing: 0;
+}
+main .info .buttons a {
+    display: flex;
+    justify-content: center;
+    background: #3a68b8;
+    min-height: 57px;
+    margin: 0 10px;
+    padding: 15px 30px;
+    border-radius: 5px;
+    gap: 10px;
+    text-decoration: none;
+}
+main .info img {
+    max-width: 415px;
+}
+main .partners {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 20px;
+}
+main .partners img {
+    max-height: 60px;
+}
+/*** Footer *********************************/
+footer {
+    height: 40px !important;
+    border: none;
+    font-size: 16px !important;
+    color: #aaa;
+}
+/* <!-- </editor-folder--> */

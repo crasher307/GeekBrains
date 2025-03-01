@@ -1,0 +1,344 @@
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+a:visited {
+  color: inherit;
+}
+
+.btrr {
+  border-top-right-radius: 100px;
+}
+
+.btlr {
+  border-top-left-radius: 100px;
+}
+
+.bbrr {
+  border-bottom-right-radius: 100px;
+}
+
+.bblr {
+  border-bottom-left-radius: 100px;
+}
+
+.center {
+  padding-left: calc(50% - 600px);
+  padding-right: calc(50% - 600px);
+}
+
+.header {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header__menu {
+  display: flex;
+  justify-content: end;
+  gap: 50px;
+  color: rgb(41, 47, 54);
+  font-family: "Jost", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.main__content {
+  width: 1200px;
+  height: 758px;
+  background-image: url("../images/main-back.png");
+  background-repeat: no-repeat;
+  background-size: 1200px;
+  background-position: center;
+  border-radius: 50px;
+  padding: 200px 50px;
+}
+.main__title {
+  font-family: "DM Serif Display", serif;
+  font-size: 65px;
+  font-weight: 400;
+  line-height: 125%;
+  letter-spacing: 0%;
+  color: #292f36;
+  max-width: 484px;
+  margin-bottom: 20px;
+}
+.main__descr {
+  font-family: "Jost", sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: #4d5053;
+  max-width: 434px;
+  margin-bottom: 20px;
+}
+.main__button {
+  padding: 25px 50px;
+  border-radius: 15px;
+  background-color: #292f36;
+  display: inline-block;
+  max-width: 221px;
+  transition: all 0.4s;
+}
+.main__button:hover {
+  background-color: #818181;
+}
+.main__button:active {
+  background-color: #292f36;
+}
+.main__button_text {
+  color: #ffffff;
+  font-family: "Jost", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.project {
+  padding-bottom: 95px;
+}
+.project__top {
+  padding-top: 95px;
+  padding-bottom: 95px;
+}
+.project__top_title {
+  font-family: "DM Serif Display", serif;
+  font-size: 50px;
+  font-weight: 400;
+  line-height: 125%;
+  letter-spacing: 2%;
+  color: #292f36;
+  text-align: center;
+}
+.project__top_text {
+  font-family: "Jost", sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 150%;
+  color: #292f36;
+  text-align: center;
+}
+.project__cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 100px;
+  row-gap: 50px;
+}
+.project__item {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.project__item_pic img {
+  width: 100%;
+  height: 100%;
+}
+.project__item_descr {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.project__item_descr-title {
+  font-family: "DM Serif Display", serif;
+  font-size: 25px;
+  font-weight: 400;
+  color: #292f36;
+}
+.project__item_descr-type {
+  font-family: "Jost", sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: #292f36;
+}
+.project__item_descr-btn {
+  width: 70px;
+  height: 70px;
+  border-radius: 35px;
+  background-color: #f4f0ec;
+  padding: 26px 30px;
+}
+
+.counter {
+  background-color: #f4f0ec;
+  padding-top: 150px;
+  padding-bottom: 150px;
+}
+.counter__content {
+  display: flex;
+  justify-content: center;
+}
+.counter__item {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  padding-left: 75px;
+  padding-right: 75px;
+  border-right: 1px solid rgb(205, 162, 116);
+}
+.counter__item:last-child {
+  border: none;
+}
+.counter__item_number {
+  font-family: "DM Serif Display", serif;
+  font-size: 85px;
+  font-weight: 400;
+  color: #cda274;
+}
+.counter__item_text {
+  font-family: "Jost", sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: #4d5053;
+  text-align: center;
+}
+
+.blog {
+  padding-top: 95px;
+}
+.blog__descr_title {
+  font-family: "DM Serif Display", serif;
+  font-size: 50px;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #292f36;
+  text-align: center;
+  margin-top: 12px;
+}
+.blog__descr_text {
+  text-align: center;
+  font-family: "Jost", sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  margin-bottom: 50px;
+}
+.blog__articles {
+  display: flex;
+  gap: 27px;
+}
+.blog__articles-item {
+  border: 1px solid rgb(231, 231, 231);
+  border-radius: 62px;
+  padding: 21px;
+  max-width: 382px;
+}
+.blog__articles-item_pic {
+  border-top-left-radius: 45px;
+  border-top-right-radius: 45px;
+}
+.blog__articles-item_pic img {
+  border-top-left-radius: 45px;
+  border-top-right-radius: 45px;
+  max-width: 100%;
+}
+.blog__articles-item_title {
+  font-family: "DM Serif Display", serif;
+  font-size: 25px;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #292f36;
+  margin-top: 21px;
+  margin-bottom: 40px;
+  max-width: 305px;
+}
+.blog__articles-item_bot {
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.blog__articles-item p {
+  font-family: "Jost", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #4d5053;
+}
+.blog__articles-item a {
+  width: 52px;
+  height: 52px;
+  border-radius: 26px;
+  background-color: #f4f0ec;
+  padding: 19px 24px;
+}
+.blog__articles-item:nth-child(2) {
+  background-color: #f4f0ec;
+}
+.blog__articles-item:nth-child(2) a {
+  background-color: #fff;
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding-top: 95px;
+  padding-bottom: 135px;
+}
+.footer__left {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+.footer__left p {
+  font-family: "Jost", sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: #4d5053;
+}
+.footer__left_social {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+}
+.footer__center {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding-left: 100px;
+}
+.footer__center h5 {
+  font-family: "DM Serif Display", serif;
+  font-size: 25px;
+  font-weight: 400;
+  color: #292f36;
+}
+.footer__center a {
+  font-family: "Jost", sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: #4d5053;
+}
+.footer__right {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding-left: 100px;
+}
+.footer__right h5 {
+  font-family: "DM Serif Display", serif;
+  font-size: 25px;
+  font-weight: 400;
+  color: #292f36;
+}
+.footer__right a, .footer__right p {
+  font-family: "Jost", sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: #4d5053;
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="view">
+    <div class="element hide">
+        <div class="title">Название продукта</div>
+        <div class="messages">
+            <div class="text hide">Отзыв</div>
+        </div>
+    </div>
+</div>
+
+<div class="form">
+    <select>
+        <option value="" selected disabled>Выберите товар</option>
+    </select>
+    <textarea rows="10" placeholder="Отзыв"></textarea>
+    <button>Submit</button>
+</div>
+
+<script defer>
+    'use strict';
+
+    const feedback = [
+        {
+            product: "Apple iPhone 13",
+            reviews: [
+                {id: "1", text: "Отличный телефон! Батарея держится долго."},
+                {id: "2", text: "Камера супер, фото выглядят просто потрясающе."},
+            ],
+        },
+        {
+            product: "Samsung Galaxy Z Fold 3",
+            reviews: [
+                {id: "3", text: "Интересный дизайн, но дорогой."},
+            ],
+        },
+        {
+            product: "Sony PlayStation 5",
+            reviews: [
+                {id: "4", text: "Люблю играть на PS5, графика на высоте."},
+            ],
+        },
+    ];
+
+    const viewEl = document.querySelector('.view');
+    const formEl = document.querySelector('.form');
+    const element = viewEl.querySelector('.element');
+    const message = element.querySelector('.messages .text');
+
+    const selectEl = formEl.querySelector('select');
+    const textareaEl = formEl.querySelector('textarea');
+    const buttonEl = formEl.querySelector('button');
+
+    buttonEl.addEventListener('click', () => pushMessage(selectEl.value, textareaEl.value));
+
+    feedback.forEach(e => {
+        const opt = document.createElement('option');
+        opt.innerHTML = e.product;
+        selectEl.appendChild(opt);
+        const msg = addElem(e.product).querySelector('.messages');
+        e.reviews.forEach(rev => {
+            addMessage(msg, rev.id, rev.text);
+        });
+    });
+
+    function addElem(title) {
+        const el = element.cloneNode(true);
+        el.querySelector('.title').innerHTML = el.dataset.product = title;
+        el.classList.remove('hide');
+        viewEl.appendChild(el);
+        return el;
+    }
+
+    function addMessage(elem, id, msg) {
+        const el = message.cloneNode(true);
+        el.dataset.id = id;
+        el.innerHTML = msg;
+        el.classList.remove('hide');
+        elem.appendChild(el);
+        window.scrollTo({top: 9999999});
+    }
+
+    function pushMessage(product, msg) {
+        const pr = feedback.find(e => e.product === product);
+        const prEl = viewEl.querySelector(`.element[data-product="${product}"]`);
+        if (product.length === 0 || !pr || !prEl) {
+            throw new Error('Продукт не найден');
+        }
+        if (message.length < 50 || message.length > 500) {
+            throw new Error('Некорректная длина сообщения');
+        }
+        const idx = Number(pr.reviews[pr.reviews.length - 1].id) + 1;
+        pr.reviews.push({id: idx, text: msg});
+        addMessage(prEl.querySelector('.messages'), idx, msg);
+
+        console.log({
+            feedback,
+            new: {product, message},
+        });
+    }
+</script>
+
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+    }
+
+    .view {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: stretch;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .view .element {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: stretch;
+        gap: 10px;
+        border-radius: 5px;
+        padding: 5px 20px;
+    }
+
+    .view .element .title {
+        color: #33BB77;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .view .element .messages {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .view .element .text {
+        border-radius: 5px;
+        padding: 10px 20px;
+        background: #33BB77;
+        color: #FFFFFF;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: auto;
+        padding: 20px;
+        width: 100%;
+        max-width: 400px;
+        justify-content: stretch;
+    }
+
+    .form > * {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        margin: 0;
+        padding: 5px 20px;
+    }
+
+    .view .hide {
+        display: none;
+    }
+</style>
+
+</body>
+</html>

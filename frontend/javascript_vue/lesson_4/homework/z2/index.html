@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+
+<div id="app">
+    <h1>Товары</h1>
+    <div class="control">
+        <label>Сортировка</label>
+        <div class="btns">
+            <button :class="{'active': sortType === null}" @click="sort()">По умолчанию</button>
+            <button :class="{'active': sortType === 'asc'}" @click="sort('asc')">По возрастанию</button>
+            <button :class="{'active': sortType === 'desc'}" @click="sort('desc')">По убыванию</button>
+        </div>
+    </div>
+    <div class="products">
+        <div class="product" v-for="product in viewProducts" :key="product.id">
+            <div class="title">{{product.name}}</div>
+            <div class="price">{{product.price}}</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            sortType: null,
+            products: [
+                {id: 1, name: "Apple iPhone 14 256 GB", price: 1100},
+                {id: 2, name: "Apple iPhone 15 128 GB", price: 1000},
+                {id: 3, name: "Samsung Galaxy S24 Ultra 1TB", price: 1800},
+                {id: 4, name: "Xiaomi Mi 12 5G 128GB", price: 450},
+                {id: 5, name: "Sony PlayStation Digital Edition", price: 500},
+                {id: 6, name: "Lada Vesta Sedan", price: 21000},
+                {id: 7, name: "Tuborg Green", price: 1},
+            ],
+        },
+        computed: {
+            viewProducts() {
+                let response = [...this.products];
+                switch (this.sortType) {
+                    case 'asc':
+                        response.sort((a, b) => a.price - b.price);
+                        break;
+                    case 'desc':
+                        response.sort((a, b) => b.price - a.price);
+                        break;
+                }
+                return response;
+            },
+        },
+        methods: {
+            sort(type = null) {
+                this.sortType = type;
+            },
+        },
+    });
+</script>
+
+<style scoped>
+    * {
+        box-sizing: border-box;
+        outline: none;
+    }
+    body, #app, #app * {
+        display: flex;
+        flex-wrap: wrap;
+        &:is(body, #app) {
+            flex-direction: column;
+            gap: 20px;
+            margin: 0;
+            padding: 20px;
+        }
+    }
+    body {
+        align-items: center;
+        font-family: sans-serif;
+        font-size: 16px;
+    }
+    h1 {
+        margin: 0;
+        padding: 0;
+        font-size: 1.4em;
+    }
+    #app {
+        justify-content: start;
+        border-radius: 3px;
+        box-shadow: #3399DD 0 0 10px -1px;
+        width: 100%;
+        max-width: 460px;
+        & > * {
+            gap: 10px;
+        }
+        & > h1 {
+            justify-content: center;
+        }
+    }
+    .title {
+        font-size: 20px;
+    }
+    .control {
+        flex-direction: column;
+        align-content: space-around;
+        label, button {
+            border-radius: 3px;
+            border: none;
+            box-shadow: #3399DD 0 0 3px 0;
+            background: #444444;
+            color: #ffffff;
+            padding: 3px 10px;
+            font-weight: bold;
+            font-size: 12px;
+            letter-spacing: .05em;
+            &.active {
+                background: #3399DD;
+            }
+            &:is(label) {
+                background: #eeeeee;
+                color: #777777;
+                padding: 4px 4px 14px;
+                margin: 0 10px -20px;
+            }
+        }
+        .btns {
+            justify-content: space-between;
+            gap: 5px;
+        }
+    }
+    .products {
+        flex-direction: column;
+        gap: 2px !important;
+        .product {
+            padding: 5px 10px;
+            border-radius: 3px;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            &:nth-child(2n) {
+                background: #3399DD11;
+            }
+            .price {
+                gap: .3em;
+                font-family: monospace;
+                font-weight: bold;
+                color: #33BB77;
+                &:after {
+                    content: "$";
+                }
+            }
+        }
+    }
+</style>
+
+</body>
+</html>

@@ -1,0 +1,145 @@
+/* <!-- <editor-folder Base> --> */
+@font-face {
+    font-family: Open Sans;
+    src: url("./fonts/Open_Sans/OpenSans-VariableFont_wdth,wght.ttf") format("truetype");
+    font-style: normal;
+}
+@font-face {
+    font-family: Open Sans;
+    src: url("./fonts/Open_Sans/OpenSans-Italic-VariableFont_wdth,wght.ttf") format("truetype");
+    font-style: italic;
+}
+/*** Selection ******************************/
+::selection {
+    background: #888;
+}
+/*** Placeholder ****************************/
+::placeholder {
+    color: #b9b9b9;
+}
+/*** Body ***********************************/
+body {
+    background: #fff;
+    color: #888;
+    font-family: "Open Sans", sans-serif;
+}
+/*** Link ***********************************/
+a {
+    text-decoration: underline #f25822;
+    color: #f25822;
+}
+/* <!-- </editor-folder--> */
+/* <!-- <editor-folder Site> --> */
+header, main {
+    max-width: 1300px;
+}
+/*** Head ***********************************/
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 120px !important;
+    background: rgba(255, 255, 255, 0.02);
+    color: inherit;
+}
+header .menu {
+    font-size: 14px !important;
+    line-height: 16px;
+    letter-spacing: 0;
+    color: #000;
+}
+header .menu > a {
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+    margin: 0 20px;
+    max-height: 40px;
+}
+header .menu > a[active] {
+    color: #f25822;
+}
+/*** Content ********************************/
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: calc(100vh - 120px) !important;
+    font-size: 20px !important;
+}
+main .info {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    gap: 40px;
+    width: 100%;
+    margin: 0 0 260px;
+}
+main .info > img {
+    max-width: 550px;
+}
+main .info .title {
+    color: #000;
+    margin: 0 0 20px;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+main .info .desc {
+    color: #888;
+    margin: 0 0 40px;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+main .info .buttons {
+    display: flex;
+    gap: 60px;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: normal;
+}
+main .info .buttons a {
+    display: flex;
+    justify-content: center;
+    background: none;
+    min-height: 50px;
+    border-radius: 50px;
+    padding: 15px 30px;
+    color: #aaa;
+    text-decoration: none;
+}
+main .info .buttons a[active] {
+    color: #fff;
+    background: #f25822;
+    box-shadow: 4px 4px 8px 0 #F2582233;
+}
+main .partners {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 20px;
+}
+main .partners img {
+    max-height: 50px;
+}
+main .partners a {
+    border: 3px solid rgba(0, 0, 0, 0);
+    padding: 5px 10px;
+}
+main .partners a:hover,
+main .partners a:focus {
+    border: 3px solid #bbb;
+}
+/*** Footer *********************************/
+footer {
+    display: none;
+    height: 40px !important;
+    border: none;
+    font-size: 16px !important;
+    color: #aaa;
+}
+/* <!-- </editor-folder--> */

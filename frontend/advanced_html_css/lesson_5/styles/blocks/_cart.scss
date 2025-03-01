@@ -1,0 +1,264 @@
+// Блок корзины
+.cart {
+  @include flexRow($content-gap);
+  padding-top: 100px;
+  padding-bottom: 100px;
+
+  input, button {
+    @include flex;
+    @include font(13px, 300);
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    width: 100%;
+    min-height: 45px;
+    border: 1px solid $color-3;
+
+    &:is(button) {
+      @include color(none, $color-6);
+      width: auto;
+      padding: 15px 40px;
+    }
+
+    &:is(button, [type=submit]) {
+      text-transform: uppercase;
+
+      &:is(:hover, :focus) {
+        @include color($color-active, $color-1);
+      }
+    }
+  }
+
+  hr {
+    background: $color-3;
+    height: 1px;
+    margin: 10px 0;
+  }
+
+  .product-list {
+    @include flexColumn($content-gap + 10px);
+
+    .product {
+      @include flex(stretch, stretch);
+      position: relative;
+      box-shadow: 6px 4px 35px #{$color-7}35;
+      padding: 0;
+      height: 300px;
+
+      .image {
+        @include flex;
+        align-self: stretch;
+
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: contain;
+        }
+      }
+
+      input {
+        @include font(18px, 400);
+        text-align: center;
+        min-height: 0;
+      }
+
+      .close {
+        @include icon(18px, "../source/icons/close.svg");
+        position: absolute;
+        top: 26px;
+        right: 20px;
+        cursor: pointer;
+      }
+
+      .desc {
+        @include flex(start, start);
+        flex-direction: column;
+        padding: 20px 58px 20px 30px;
+        width: 400px;
+        max-width: 100%;
+
+        .title {
+          @include flexColumn;
+          @include fontUpper(24px, 400, $color-7);
+          margin-bottom: 35px;
+        }
+
+        .props {
+          @include flex(start, center, 20px);
+          @include font(22px, 400, $color-6);
+          height: 40px;
+
+          input {
+            @include flex;
+            @include font(18px, 400);
+            justify-self: start;
+            width: 44px;
+            height: 100%;
+            padding: 0;
+          }
+
+          &[data-name=price] {
+            color: $color-active;
+          }
+
+          &:before {
+            color: $color-6;
+            text-transform: capitalize;
+            content: attr(data-name) ":";
+          }
+        }
+      }
+    }
+
+    .buttons {
+      @include flexRow(20px);
+      margin-top: 30px;
+    }
+  }
+
+  .data {
+    @include flex(start, start, 60px);
+    flex-direction: column;
+    cursor: default;
+
+    .name {
+      @include fontUpper(16px, 300, $color-7);
+    }
+
+    button {
+      font-size: 11px;
+      padding: 10px 15px;
+    }
+
+    & > * {
+      @include flexColumn(10px);
+      width: 100%;
+
+      button {
+        align-self: start;
+      }
+
+      .props {
+        @include flex(end, center, 20px);
+        @include fontUpper(11px, 400, $color-6);
+
+        &:before {
+          color: $color-6;
+          content: attr(data-name);
+        }
+
+        &.big {
+          @include fontUpper(16px, 700, $color-active);
+
+          &:before {
+            color: $color-7;
+            content: attr(data-name);
+          }
+        }
+      }
+
+      &.buy {
+        background: $color-2;
+        padding: 40px;
+
+        input[type=submit] {
+          @include flex;
+          @include font(16px, 300);
+          padding: 15px 40px;
+          text-transform: uppercase;
+
+          &:is(:hover, :focus) {
+            @include color($color-active-focus);
+          }
+        }
+      }
+    }
+
+    .fields {
+      gap: 20px;
+    }
+  }
+}
+
+// Tablet
+@media (max-width: $size-md), (max-width: $size-sm) and (orientation: portrait) {
+  .cart {
+    @include flexColumn($content-gap);
+
+    .product-list {
+      .buttons {
+        @include flex(space-evenly, center, 20px);
+      }
+    }
+
+    .data {
+      @include flexRow(15px, center);
+
+      .fields {
+        gap: 25px;
+      }
+    }
+  }
+}
+
+// Mobile
+@media (max-width: $size-xs), (max-width: $size-sm) and (orientation: landscape) {
+  .cart {
+    gap: 50px;
+    padding-top: 40px;
+
+    input, button {
+      @include font(12px, 300);
+
+      &:is(button) {
+        padding: 15px 30px;
+      }
+
+      &:is(button, [type=submit]) {
+        text-transform: none;
+      }
+    }
+
+    .product-list {
+      @include flexColumn($content-gap);
+
+      .product {
+        height: 190px;
+
+        input {
+          @include font(12px, 400);
+        }
+
+        .close {
+          @include icon(9px, "../source/icons/close.svg");
+        }
+
+        .desc {
+          width: 220px;
+
+          .title {
+            font-size: 16px;
+            margin-bottom: 25px;
+          }
+
+          .props {
+            @include font(14px, 400);
+            height: 20px;
+
+            input {
+              @include font(10px, 400);
+              width: 24px;
+            }
+          }
+        }
+      }
+
+      .buttons {
+        @include flexRow(10px);
+      }
+    }
+
+    .data {
+      flex-direction: column;
+      gap: 50px;
+    }
+  }
+}

@@ -1,0 +1,38 @@
+<div class="info">
+    <div class="cell url">Запрашиваемая страница</div>
+    <div class="cell code">Код ответа</div>
+    <div class="cell views">Просмотров</div>
+</div>
+
+<script type="module" defer>
+    'use strict';
+    const content = document.querySelector('.info');
+    const infoBlock = content.cloneNode(true);
+    const elements = [];
+    const create = (url, code, views, warning) => {
+        const data = {
+            remove: () => Object.keys(data.el).forEach(key => data.el[key].remove()),
+            el: {
+                url: infoBlock.querySelector('.url').cloneNode(),
+                code: infoBlock.querySelector('.code').cloneNode(),
+                views: infoBlock.querySelector('.views').cloneNode(),
+            },
+        };
+        Object.entries({url, code, views}).forEach(e => {
+            data.el[e[0]].innerHTML = e[1];
+            if (warning) {
+                data.el[e[0]].classList.add('warning');
+            }
+        });
+        return elements[elements.push(data) - 1];
+    };
+    Counter.addEvent('infoPage', (data) => {
+        elements.forEach((e, idx) => elements[idx].remove());
+        elements.splice(0, elements.length);
+        data.forEach(e => {
+            const obj = create(e.url, e.code, e.views, e.code !== 200);
+            Object.keys(obj.el).forEach(ex => content.appendChild(obj.el[ex]));
+        });
+    });
+    setInterval(() => Counter.update(), 20000);
+</script>

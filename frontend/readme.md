@@ -1,0 +1,41 @@
+### Разработчик — Frontend разработка (Vue). Технологическая специализация
+
+#### Обучение
+- Веб-верстка HTML/CSS
+  - [Сертификат](https://gb.ru/certificates/2818898)
+  - [readme.md](html_css/readme.md)
+- Продвинутый HTML + CSS (лекции)
+  - [Сертификат](https://gb.ru/certificates/2818899)
+- Продвинутый HTML + CSS
+  - [Сертификат](https://gb.ru/certificates/2818900)
+  - [readme.md](advanced_html_css/readme.md)
+- Основы Javascript
+  - [Сертификат](https://gb.ru/certificates/2818901)
+  - [readme.md](javascript/readme.md)
+- Продолжение JavaScript
+  - [Сертификат](https://gb.ru/certificates/2818902)
+  - [readme.md](javascript_continued/readme.md)
+- JavaScript про ECMAScript (лекции)
+  - [Сертификат](https://gb.ru/certificates/2818903)
+- JavaScript про ECMAScript (семинары в записи)
+  - [Сертификат](https://gb.ru/certificates/2818904)
+  - [readme.md](javascript_ecmascript/readme.md)
+- Основы Node.js (лекции)
+  - [Сертификат](https://gb.ru/certificates/2818905)
+- Основы Node.js (семинары в записи)
+  - [Сертификат](https://gb.ru/certificates/2818906)
+  - [readme.md](node_js/readme.md)
+- Продвинутый JavaScript (лекции)
+  - [Сертификат](https://gb.ru/certificates/2818907)
+- Продвинутый JavaScript (семинары в записи)
+  - [Сертификат](https://gb.ru/certificates/2818908)
+  - [readme.md](javascript_advanced/readme.md)
+- JavaScript про API браузеров (лекции)
+  - [Сертификат](https://gb.ru/certificates/2818910)
+- JavaScript про API браузеров (семинары в записи)
+  - [Сертификат](http://gb.ru/certificates/2818911)
+  - [readme.md](javascript_browser_api/readme.md)
+- Фреймворк Vue.js
+  - [Сертификат](https://gb.ru/certificates/2818912)
+  - [readme.md](javascript_vue/readme.md)
+- Итоговая аттестация

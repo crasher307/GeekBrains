@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link type="text/css" rel="stylesheet" href="style.css"/>
+    <style>
+        body {
+            justify-content: start;
+        }
+        .news {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: start;
+            gap: 20px;
+        }
+        .news .title {
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container news">
+    <button class="add">Добавить новость</button>
+    <div class="container article hide">
+        <div class="title"></div>
+        <div class="content"></div>
+        <div class="control">
+            <div class="update"></div>
+            <div class="remove"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    'use strict';
+    const articlesRaw = JSON.stringify([
+        {
+            id: Date.parse('2024-01-12'),
+            title: "News 1",
+            content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad atque corporis cumque, dolores earum ex exercitationem, facilis libero nam sequi ullam velit, voluptates voluptatibus? Asperiores distinctio ea iure temporibus veritatis. Accusamus, ad est illum minima nesciunt quia quibusdam reprehenderit sunt!",
+        },
+        {
+            id: Date.parse('2024-01-13'),
+            title: "News 2",
+            content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum eius est fuga itaque nesciunt, nisi obcaecati omnis quam reprehenderit. Corporis!",
+        }
+    ]);
+
+    let articles = [];
+    const articlesBlock = document.querySelector('.news');
+    const articlesTplEl = document.querySelector('.article.hide');
+
+    window.addEventListener('DOMContentLoaded', () => articlesLoad());
+    articlesBlock.addEventListener('click', ({target}) => {
+        if (target.matches('.add')) {
+            articlesAdd();
+        }
+        const id = target.parentElement.dataset.id;
+        if (target.matches('.update')) {
+            articlesUpdate(id);
+        }
+        if (target.matches('.remove')) {
+            articlesRemove(id);
+        }
+    });
+
+    function getItemNews(title = 'Новая статья', content = 'Содержание статьи', id = Date.now()) {
+        return {
+            id,
+            title: prompt('Введите заголовок статьи', title),
+            content: prompt('Введите содержание статьи', content),
+        };
+    }
+
+    function articlesLoad() {
+        articles = JSON.parse(localStorage.getItem('news')) || [];
+        if (articles.length === 0) {
+            articles = JSON.parse(articlesRaw) || [];
+        }
+        articlesUpdateDOM();
+    }
+    function articlesAdd() {
+        articles.push(getItemNews());
+        articlesUpdateDOM();
+    }
+    function articlesUpdate(id) {
+        const idx = articles.findIndex(e => Number(e.id) === Number(id));
+        if (idx >= 0) {
+            articles[idx] = getItemNews(articles[idx].title, articles[idx].content, articles[idx].id);
+        }
+        articlesUpdateDOM();
+    }
+    function articlesRemove(id) {
+        const idx = articles.findIndex(e => Number(e.id) === Number(id));
+        if (idx >= 0) {
+            articles.splice(idx, 1);
+        }
+        articlesUpdateDOM();
+    }
+
+    function articlesUpdateDOM() {
+        localStorage.setItem('news', JSON.stringify(articles)); // save
+        // clear news
+        Array.from(articlesBlock.children).forEach(el => {
+            if (el.className.includes('article') && !el.className.includes('hide')) {
+                el.remove();
+            }
+        });
+        // add news
+        articles.forEach(item => {
+            const el = articlesTplEl.cloneNode(true);
+            el.dataset.id = item.id;
+            el.querySelector('.control').dataset.id = item.id;
+            el.querySelector('.title').innerHTML = item.title;
+            el.querySelector('.content').innerHTML = item.content;
+            el.classList.remove('hide');
+            articlesBlock.appendChild(el);
+        });
+    }
+</script>
+
+</body>
+</html>

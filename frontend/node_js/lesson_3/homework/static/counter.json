@@ -1,0 +1,22 @@
+[
+    {
+        "url": "/test",
+        "code": 404,
+        "views": 1
+    },
+    {
+        "url": "/",
+        "code": 200,
+        "views": 544
+    },
+    {
+        "url": "/info",
+        "code": 200,
+        "views": 520
+    },
+    {
+        "url": "/about",
+        "code": 200,
+        "views": 95
+    }
+]

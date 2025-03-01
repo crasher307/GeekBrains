@@ -1,0 +1,62 @@
+// Промо-блок (изображение с текстом)
+.promotion {
+  @include flex(space-around, center, $content-gap);
+  @include color($color-promo, $color-7);
+  height: $promo-height-desktop;
+  cursor: default;
+
+  .image {
+    @include flex;
+    overflow: hidden;
+    max-width: 400px;
+    height: 100%;
+
+    img {
+      align-self: end;
+      margin: 0 -50%;
+      max-width: 200%;
+      max-height: 100%;
+      transform: translate(-2%);
+    }
+  }
+
+  .name {
+    @include flexColumn;
+    @include fontUpper(32px, 700);
+    border-left: 12px solid #F16D7F;
+    padding: 0 16px;
+    max-width: 418px;
+    width: 100%;
+
+    & > :first-child {
+      @include font(48px, 900);
+    }
+
+    & > * * {
+      color: $color-active;
+    }
+  }
+}
+
+// Tablet
+@media (max-width: $size-md), (max-width: $size-sm) and (orientation: portrait) {
+  .promotion {
+    height: $promo-height-tablet;
+
+    .name {
+      @include fontUpper(24px);
+      max-width: 326px;
+
+      & > :first-child {
+        @include font(44px);
+      }
+    }
+  }
+}
+
+// Mobile
+@media (max-width: $size-xs), (max-width: $size-sm) and (orientation: landscape) {
+  .promotion .image {
+    display: none;
+  }
+}

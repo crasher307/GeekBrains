@@ -1,0 +1,5 @@
+.vscode
+example*/
+
+func/bin
+**/obj

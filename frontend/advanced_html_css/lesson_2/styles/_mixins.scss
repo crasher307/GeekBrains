@@ -1,0 +1,43 @@
+// Mixins
+
+@mixin contentSize($padding) {
+  header {
+    padding: 0 $padding;
+  }
+  main {
+    & > * {
+      padding: 0 $padding;
+    }
+  }
+  footer {
+    padding: 0 $padding;
+  }
+}
+
+@mixin icon($size, $image) {
+  @include flex;
+
+  &:before {
+    @include flex;
+    width: $size;
+    max-width: 100%;
+    height: $size;
+    max-height: 100%;
+    background: url($image) no-repeat center / contain;
+    content: "";
+  }
+}
+
+@mixin viewOnFocus($child) {
+  #{$child} {
+    //transition: left 0s, right 0s, top 0s, bottom 0s, visibility .2s ease-in-out, transform .2s ease-in .2s;
+  }
+  &:not(:hover, :focus) {
+    & > #{$child} {
+      display: none;
+      //visibility: hidden;
+      //transform: translateY(-50%) scaleY(0);
+      //transition: transform .6s ease-in .5s, visibility 1.2s ease-in;
+    }
+  }
+}

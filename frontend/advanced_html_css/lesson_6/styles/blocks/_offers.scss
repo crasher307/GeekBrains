@@ -1,0 +1,41 @@
+// Блок предложений (картинки с текстом после промо)
+.offers {
+  @include grid(3, $content-gap);
+  text-align: center;
+
+  .card {
+    position: relative;
+
+    &:nth-child(4n) {
+      grid-column: 1/4;
+    }
+
+    & > :not(img) {
+      @include flexColumn;
+      @include absolute;
+      @include color($color-offers, $color-1);
+      @include fontUpper(16px, 400);
+      transition: all 0.2s ease-in-out;
+
+      strong {
+        @include font(24px, 700);
+      }
+
+      &:is(:hover, :focus) {
+        opacity: 0.5;
+        filter: blur(1px);
+      }
+    }
+  }
+}
+
+// Mobile
+@media (max-width: $size-xs), (max-width: $size-sm) and (orientation: landscape) {
+  .offers {
+    @include flexColumn($content-gap);
+
+    img {
+      min-height: 110px;
+    }
+  }
+}

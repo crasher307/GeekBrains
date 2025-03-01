@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link type="text/css" rel="stylesheet" href="style.css"/>
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+<div class="feedback">
+    <div class="container hide">
+        <div class="product"></div>
+        <div class="message"></div>
+        <div class="remove"></div>
+    </div>
+</div>
+
+<div class="container">
+    <label for="selectedProduct">Список отзывов для:</label>
+    <select id="selectedProduct"></select>
+</div>
+
+<div class="container form">
+    <label for="product">Название продукта</label>
+    <input id="product" type="text" list="products">
+    <datalist id="products"></datalist>
+    <label for="message">Отзыв</label>
+    <textarea id="message" rows="10" placeholder="минимум 10 слов"></textarea>
+    <button>Оставить отзыв</button>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            background-color: #333;
+        }
+
+        nav ul li {
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li a {
+            display: block;
+            padding: 10px 20px;
+            color: #fff;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #555;
+        }
+
+        nav ul li a.active {
+            background-color: #59b;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <ul class="menu">
+        <li><a class="menu__link active" href="#">Главная</a></li>
+        <li><a class="menu__link" href="#">О нас</a></li>
+        <li><a class="menu__link" href="#">Услуги</a></li>
+        <li><a class="menu__link" href="#">Контакты</a></li>
+    </ul>
+</nav>
+
+<script>
+    const menu = document.querySelector('nav .menu');
+    const links = Array.from(menu.querySelectorAll('.menu__link'));
+    menu.addEventListener('click', ({target}) => {
+        if (target.matches('.menu__link')) {
+            links.find(e => e.matches('.active')).classList.remove('active');
+            target.classList.add('active');
+        }
+    });
+</script>
+
+</body>
+</html>

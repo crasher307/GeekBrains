@@ -1,0 +1,80 @@
+.player {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #333;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 500px;
+  margin: 0 auto;
+
+  video {
+    z-index: 1;
+  }
+
+  & * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    z-index: 2;
+  }
+
+  .panel {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 6px 10px;
+    justify-content: space-between;
+    gap: 6px;
+    background: #3377bb80;
+
+    .volume {
+      margin-left: auto;
+    }
+  }
+
+  .btn {
+    border-radius: 4px;
+
+    &:before {
+      width: 20px;
+      height: 22px;
+      border-radius: 4px;
+      filter: invert(1);
+      cursor: pointer;
+      content: "";
+    }
+
+    &.play:before {
+      background: url("play.png") no-repeat center center;
+      background-size: contain;
+    }
+
+    &.pause:before {
+      background: url("pause.png") no-repeat center center;
+      background-size: contain;
+    }
+
+    &.center {
+      position: absolute;
+      background: #77777780;
+
+      &:before {
+        width: 40px;
+        height: 44px;
+      }
+    }
+  }
+}
+
+#productTemplate {
+  display: none;
+}
+
+.hidden {
+  display: none;
+}

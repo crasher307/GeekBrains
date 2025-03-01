@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link type="text/css" rel="stylesheet" href="style.css"/>
+    <style>
+        body {
+            justify-content: start;
+        }
+        #container {
+            display: flex;
+            flex-wrap: wrap;
+            margin: auto;
+            gap: 10px;
+            width: fit-content;
+            max-width: 540px;
+        }
+        .box {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 100px;
+            height: 100px;
+            background-color: #3399DD;
+            color: #fff;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <button id="addButton">Добавить элемент</button>
+    <button id="removeButton">Удалить элемент</button>
+    <button id="cloneButton">Клонировать элемент</button>
+    <div id="container">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+    </div>
+</div>
+
+<script>
+    'use strict';
+    const containerEl = document.querySelector('#container');
+    document.querySelector('#addButton').addEventListener('click', () => {
+        containerEl.insertAdjacentHTML('beforeend', `<div class="box">${containerEl.children.length + 1}</div>`);
+    });
+    document.querySelector('#removeButton').addEventListener('click', () => {
+        containerEl.lastElementChild?.remove();
+    });
+    document.querySelector('#cloneButton').addEventListener('click', () => {
+        const el = containerEl.lastElementChild?.cloneNode(true);
+        !el || containerEl.appendChild(el);
+    });
+</script>
+
+</body>
+</html>

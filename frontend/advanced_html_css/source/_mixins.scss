@@ -1,0 +1,63 @@
+// Display
+
+@mixin flex($justify: center, $align: center, $gap: null) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  @if $gap {
+    gap: $gap;
+  }
+}
+
+@mixin flexRow($gap: 0, $align: stretch) {
+  @include flex(space-between, $align, $gap);
+  flex-direction: row;
+}
+
+@mixin flexColumn($gap: 0, $align: stretch) {
+  @include flex(center, $align, $gap);
+  flex-direction: column;
+}
+
+@mixin grid($column, $gap) {
+  display: grid;
+  grid-template-columns: repeat($column, auto);
+  gap: $gap;
+}
+
+// Position
+
+@mixin absolute($content: "") {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  content: $content;
+}
+
+// Background & color
+
+@mixin color($background, $color: null) {
+  background: $background;
+  @if $color {
+    color: $color;
+  }
+}
+
+// Font
+
+@mixin font($size, $weight: null, $color: null) {
+  font-size: $size;
+  @if $weight {
+    font-weight: $weight;
+  }
+  @if $color {
+    color: $color;
+  }
+}
+
+@mixin fontUpper($size, $weight: null, $color: null) {
+  @include font($size, $weight, $color);
+  text-transform: uppercase;
+}

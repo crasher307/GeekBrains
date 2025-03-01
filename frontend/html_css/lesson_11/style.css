@@ -1,0 +1,295 @@
+/* <!-- <editor-folder Base> --> */
+@font-face {
+    font-family: Lato;
+    src: url("../../files/fonts/Lato/Lato-Thin.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 100;
+}
+@font-face {
+    font-family: Lato;
+    src: url("../../files/fonts/Lato/Lato-ThinItalic.ttf") format("truetype");
+    font-style: italic;
+    font-weight: 100;
+}
+@font-face {
+    font-family: Lato;
+    src: url("../../files/fonts/Lato/Lato-Light.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 300;
+}
+@font-face {
+    font-family: Lato;
+    src: url("../../files/fonts/Lato/Lato-LightItalic.ttf") format("truetype");
+    font-style: italic;
+    font-weight: 300;
+}
+@font-face {
+    font-family: Lato;
+    src: url("../../files/fonts/Lato/Lato-Regular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 400;
+}
+@font-face {
+    font-family: Lato;
+    src: url("../../files/fonts/Lato/Lato-Italic.ttf") format("truetype");
+    font-style: italic;
+    font-weight: 400;
+}
+@font-face {
+    font-family: Lato;
+    src: url("../../files/fonts/Lato/Lato-Bold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 700;
+}
+@font-face {
+    font-family: Lato;
+    src: url("../../files/fonts/Lato/Lato-BoldItalic.ttf") format("truetype");
+    font-style: italic;
+    font-weight: 700;
+}
+@font-face {
+    font-family: Lato;
+    src: url("../../files/fonts/Lato/Lato-Black.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 900;
+}
+@font-face {
+    font-family: Lato;
+    src: url("../../files/fonts/Lato/Lato-BlackItalic.ttf") format("truetype");
+    font-style: italic;
+    font-weight: 900;
+}
+::selection {
+    background: #F16D7F;
+    color: #fff;
+}
+a {
+    color: #F16D7F;
+    text-decoration: none;
+}
+a:hover, a:focus {
+    color: inherit;
+}
+body {
+    font-family: "Lato", sans-serif;
+    background: #fff;
+    color: #222;
+
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+/* <!-- </editor-folder--> */
+/* <!-- <editor-folder Site> --> */
+/*** Site ***********************************/
+header, main, footer {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+header > div, main > div > div {
+    max-width: 1140px;
+}
+header > div, main > div, main > div > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+/* Header */
+header {
+    height: 75px;
+    background: #222;
+}
+header > div {
+    padding: 0 30px;
+}
+header > div > div {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+/* Main */
+main {
+    flex-direction: column;
+    align-items: center;
+}
+main > div {
+    display: flex;
+    flex-direction: column;
+    gap: 20px 0;
+}
+/* Card */
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 16px;
+    padding: 24px 16px;
+    background: #F8F8F8;
+}
+.card img {
+    max-height: 420px;
+    max-width: calc(100% + 32px);
+    margin: -24px -16px 0;
+}
+.card .title {
+    color: #000;
+    font-size: 13px;
+}
+.card .desc {
+    color: #5D5D5D;
+    font-size: 14px;
+    font-weight: 300;
+}
+.card .price {
+    color: #F16D7F;
+    font-size: 16px;
+}
+/* <!-- <editor-folder Promo, Offers & Products> --> */
+/* Promo, Offers & Products */
+.offers, .products {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 25px 30px;
+    padding: 60px 0;
+}
+.offers > :nth-child(4n), .products .name, .products .more {
+    grid-column: 1/4;
+}
+/* Promo */
+main > div:first-child {
+    background: #F1E4E6;
+}
+.promo .card {
+    flex-direction: row;
+    justify-content: unset;
+    align-items: center;
+    gap: 60px;
+    padding: 0;
+    background: none;
+}
+.promo .card img {
+    max-height: none;
+    max-width: 50%;
+    margin: 0;
+}
+.promo .card .name {
+    display: flex;
+    flex-direction: column;
+    border-left: 12px solid #F16D7F;
+    padding: 0 16px;
+
+    color: #222;
+    font-size: 32px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.promo .card .name span:first-child {
+    font-size: 48px;
+    font-weight: 900;
+}
+.promo .card .name strong {
+    color: #F16D7F;
+}
+/* Offers */
+.offers .card {
+    align-items: center;
+    padding: 0;
+    color: #FFF;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+.offers .card strong {
+    color: #F16D7F;
+    font-size: 24px;
+    font-weight: 700;
+}
+.offers .card > a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background: #211616B2;
+    color: inherit;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+/* Products */
+.products .name {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+.products .name .title {
+    color: #222;
+    font-size: 30px;
+}
+.products .name .desc {
+    color: #9F9F9F;
+    font-size: 14px;
+}
+.products .more {
+    display: flex;
+    justify-self: center;
+}
+.products .more a {
+    border: 1px solid #F26376;
+    color: #F26376;
+    font-size: 16px;
+    padding: 15px 39px;
+}
+@media (orientation: portrait), (max-width: 768px) {
+    .promo .card {
+        justify-content: space-between;
+        gap: 10px;
+    }
+    .promo .card .name {
+        font-size: 16px;
+    }
+    .promo .card .name span:first-child {
+        font-size: 24px;
+    }
+
+    .offers, .products {
+        gap: 10px;
+        padding: 10px 0;
+    }
+    .offers .card {
+        font-size: 14px;
+    }
+    .offers .card strong {
+        font-size: 16px;
+    }
+
+    .products {
+        justify-items: center;
+        grid-template-columns: 100%;
+        gap: 30px;
+        padding: 20px;
+    }
+    .products .name, .products .card, .products .more {
+        grid-column: 1/1;
+    }
+    .products .card {
+        max-width: 540px;
+        border-top: 1px dashed #00000010;
+        border-radius: 10px;
+        box-shadow: 0 15px 5px 0 #00000020;
+        background: none;
+    }
+    .products .card img {
+        align-self: center;
+        border-radius: 0 0 10px 10px;
+        box-shadow: 0 5px 5px 0 #00000020;
+    }
+}
+/* <!-- </editor-folder--> */
+/* <!-- </editor-folder--> */

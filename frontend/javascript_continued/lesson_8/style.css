@@ -1,0 +1,12 @@
+input, select, textarea {
+    outline: none;
+    border: 1px solid #bbb;
+}
+
+.ok {
+    border: 1px solid #0f0;
+}
+
+.error {
+    border-color: #f00;
+}

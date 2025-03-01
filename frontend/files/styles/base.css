@@ -1,0 +1,219 @@
+/*** Clear CSS ******************************/
+/* <!-- <editor-folder Default> --> */
+html, body,
+div, img, a, hr,
+table, tr, td,
+h1, h2, h3, h4, h5, h6,
+input, select, textarea, button {
+    box-sizing:     border-box;
+    border:         none;
+    border-radius:  0;
+    margin:         0;
+    padding:        0;
+    font-family:    inherit;
+    font-size:      inherit;
+    font-style:     inherit;
+    font-weight:    inherit;
+    outline:        none;
+    vertical-align: top;
+}
+/*** Fonts **********************************/
+/* PT Sans (OpenType) */
+@font-face { font-family: PT;   src: url("../fonts/pt-sans.ttf")                format("truetype"); font-weight: normal;    font-style: normal; }
+@font-face { font-family: PT;   src: url("../fonts/pt-sans-bold.ttf")           format("truetype"); font-weight: bold;      font-style: normal; }
+@font-face { font-family: PT;   src: url("../fonts/pt-sans-italic.ttf")         format("truetype"); font-weight: normal;    font-style: italic; }
+@font-face { font-family: PT;   src: url("../fonts/pt-sans-bold-italic.ttf")    format("truetype"); font-weight: bold;      font-style: italic; }
+/*** Selection ******************************/
+::selection {
+    background:     #6c5f4d;
+    color:          #fff;
+}
+/*** Placeholder ****************************/
+::placeholder {
+    color:          #b7ab9d;
+}
+/*** ScrollBar ******************************/
+::-webkit-scrollbar {
+    width:          10px;
+    height:         10px;
+    background:     #eee;
+}
+::-webkit-scrollbar-thumb {
+    background:     #bbb;
+}
+/*** Body ***********************************/
+body {
+    min-width:      400px;
+    font-family:    PT, sans-serif;
+    font-size:      16px;
+    text-align:     left;
+    background:     #333;
+    color:          #eee;
+}
+/*** Div ************************************/
+div {
+    display:        block;
+    position:       relative;
+    font-family:    inherit;
+    overflow:       hidden;
+    word-wrap:      normal;
+    word-break:     normal;
+    white-space:    normal;
+    hyphens:        manual;
+    color:          inherit;
+}
+/*** P **************************************/
+p {
+    margin:         20px 0;
+}
+/*** Img ************************************/
+img {
+    display:        block;
+    max-width:      100%;
+    margin:         1px auto;
+}
+/*** Line ***********************************/
+hr {
+    height:         1px;
+    margin:         5px auto 4px;
+    clear:          both;
+    background:     linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, #4f483f 20%, #998261 80%, rgba(0, 0, 0, 0) 100%);
+}
+/*** Table **********************************/
+table {
+    border-spacing: 1px;
+    width:          calc(100% - 2px);
+    margin:         1px;
+    background:     rgba(0, 0, 0, 0.1);
+}
+td {
+    padding:        2px 10px;
+    background:     #fff;
+}
+/*** H **************************************/
+h1, h2, h3, h4, h5, h6 {
+    font-family:    inherit;
+}
+/* for 16px */
+h1 {    font-size:  1.375em;    }   /* 22px */
+h2 {    font-size:  1.25em;     }   /* 20px */
+h3 {    font-size:  1.125em;    }   /* 18px */
+h4 {    font-size:  1em;        }   /* 16px */
+h5 {    font-size:  0.875em;    }   /* 14px */
+h6 {    font-size:  0.75em;     }   /* 12px */
+/* <!-- </editor-folder--> */
+/*** Input & button *************************/
+/* <!-- <editor-folder Input & button> --> */
+input,
+select,
+textarea,
+button {
+    display:        block;
+    margin:         0 0 1px;
+    padding:        5px 10px;
+    min-width:      200px;
+    border-radius:  5px;
+    background:     rgba(255, 255, 255, 0.9);
+    color:          #4f483f;
+}
+select,
+textarea {
+    padding:        4px 6px;
+}
+input[type=button], input[type=submit], input[type=reset],
+button {
+    transition:     all 0.3s ease-in-out;
+    cursor:         pointer;
+    background:     #7c694f;
+    color:          #eee;
+}
+input[type=reset],
+button[type=reset] {
+    background:     #574b39;
+}
+input[type=button]:hover, input[type=button]:hover,
+input[type=submit]:hover, input[type=submit]:focus,
+input[type=reset]:hover, input[type=reset]:focus,
+button:hover, button:focus {
+    background:     #574b39;
+    color:          #eee;
+}
+textarea {
+    min-height:     30px;
+    height:         80px;
+    resize:         vertical;
+    overflow-x:     hidden;
+    overflow-y:     visible;
+}
+textarea::-webkit-scrollbar {
+    background:     none;
+}
+textarea::-webkit-scrollbar,
+textarea::-webkit-scrollbar-thumb {
+    border-radius:  5px;
+    -webkit-border-top-right-radius: inherit;
+    -webkit-border-bottom-right-radius: inherit;
+}
+textarea::-webkit-resizer,
+textarea::-webkit-scrollbar-corner {
+    border-radius:  0;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-bottom-right-radius: inherit;
+    background:     #7c694f;
+}
+/* <!-- </editor-folder--> */
+/*** Link ***********************************/
+/* <!-- <editor-folder Link> --> */
+a, a:hover, a:focus {
+    cursor:         pointer;
+    color:          inherit;
+}
+a {
+    transition:     all 0.3s ease-in-out;
+    text-decoration:underline #9d8563;
+    color:          #9d8563;
+}
+@media print {
+    a[href^=http]:after {       content:        " (url:" attr(href) ")";    }
+    a[href^="\/\/"]:after {     content:        " (url:" attr(href) ")";    }
+    a[href^="#"]:after {        content:        "";                         }
+}
+/* <!-- </editor-folder--> */
+/*** For mobile ******************************************************************************/
+/* <!-- <editor-folder Mobile> --> */
+@media (orientation: portrait), (max-width: 768px) {
+    body {
+        font-size:      32px;
+    }
+    /*** ScrollBar ******************************/
+    ::-webkit-scrollbar {
+        width:          20px;
+        height:         20px;
+    }
+    /*
+    body::-webkit-scrollbar {
+        display:        none;
+    }
+    */
+    /*** Input & button *************************/
+    input,
+    select,
+    textarea,
+    button {
+        margin:         0 0 5px;
+        min-width:      auto;
+        width:          100%;
+        border-radius:  10px;
+    }
+    textarea {
+        min-height:     160px;
+        height:         auto;
+    }
+    textarea::-webkit-scrollbar,
+    textarea::-webkit-scrollbar-thumb,
+    textarea::-webkit-scrollbar-corner {
+        /*display:        initial;*/
+        border-radius:  10px;
+    }
+}
+/* <!-- </editor-folder--> */

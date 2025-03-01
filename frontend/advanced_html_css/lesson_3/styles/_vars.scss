@@ -1,0 +1,57 @@
+/* <!-- <editor-folder Colors> --> */
+// Расцветка сайта
+$color-1: #FFFFFF;
+$color-2: #F8F8F8; // #F7F7F7, #FBFBFB // TODO --> $color-3
+$color-3: #EAEAEA; // #EBEBEB, #E1E1E1, #E8E8E8
+$color-4: #C4C4C4;
+$color-5: #9F9F9F; // #A4A4A4 // TODO --> $color-4
+$color-6: #5D5D5D; // #575757, #636363, #6F6E6E, #4D4D4D
+$color-7: #222222; // #222224, #000000, #2A2A2A26
+$color-active: #F16D7F; // #FF6A6A
+$color-active-focus: #E05C6E; // #F26376, #EF5B70
+
+// Расцветка конкретных блоков
+$color-breadcrumbs: #F8F3F4;
+$color-promo: #F1E4E6;
+$color-offers: #211616B2;
+$color-product-buy: #3A3838DB;
+/* <!-- </editor-folder--> */
+
+/* <!-- <editor-folder Sizes> --> */
+// Размеры контента
+$content-size-desktop: 1140px;
+$content-size-tablet: 736px;
+$content-size-mobile: 344px;
+
+$content-min-padding: 10px;
+$content-gap: 30px;
+
+// Размеры блоков
+$header-height: 75px;
+$footer-height: 80px;
+
+// Другое
+$header-icon: 29px;
+$advantages-icon: 45px;
+$footer-icon: 32px;
+
+$promo-height-desktop: 764px;
+$promo-height-tablet: 368px;
+$slider-height-desktop: 764px;
+$slider-height-tablet: 624px;
+
+// Отступы
+$con-pd-desktop: max($content-min-padding, calc((100vw - $content-size-desktop) / 2));
+$con-pd-tablet: max($content-min-padding, calc((100vw - $content-size-tablet) / 2));
+$con-pd-mobile: max($content-min-padding, calc((100vw - $content-size-mobile) / 2));
+/* <!-- </editor-folder--> */
+
+/* <!-- <editor-folder DeviceSizes> --> */
+// Размеры для адаптивного дизайна (взяты из Bootstap'а, стандарт ширины для устройств)
+// PS: Используются для определения устройства, не для контента
+$size-xs: 576px;
+$size-sm: 768px;
+$size-md: 992px;
+// $size-lg: 1200px;
+// $size-xl: 1400px;
+/* <!-- </editor-folder--> */

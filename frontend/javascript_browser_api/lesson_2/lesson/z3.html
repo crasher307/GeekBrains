@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #33BB77;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            padding: 5px 10px;
+            width: 200px;
+            max-width: 100%;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<button class="buy">Купить</button>
+
+<script>
+    const buyButton = document.querySelector('.buy');
+    let time = null;
+    buyButton.addEventListener('click', ({target, isTrusted}) => {
+        console.log('@click');
+        if (isTrusted) {
+            clearTimeout(time);
+            target.innerHTML = 'Товар добавлен в корзину';
+            time = setTimeout(() => target.innerHTML = 'Купить', 2000);
+        }
+    });
+    buyButton.dispatchEvent((new Event('click')));
+</script>
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="ru">
+<head>
+    <title>Корзина</title>
+    <!-- meta http-equiv -->
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="description ...">
+    <meta name="keywords" content="keywords, ...">
+    <!-- icon -->
+    <link type="image/x-icon" rel="shortcut icon" href="../source/other/favicon.ico">
+    <!-- style -->
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <!-- javascript -->
+    <script type="text/javascript" src="../source/loading.js" async></script>
+    <script type="text/javascript" src="../source/shop-config.js" defer></script>
+</head>
+<body data-loading>
+
+<header>
+    <a class="logo" href="#"></a>
+    <a class="search" href="#"></a>
+    <div class="menu" id="menu"></div>
+    <a class="profile" href="#"></a>
+    <a class="basket" href="#" data-count="5"></a>
+</header>
+<main>
+    <div class="breadcrumbs">
+        <div class="name">Shopping cart</div>
+    </div>
+    <div class="cart">
+        <div class="product-list">
+            <div class="product">
+                <div class="close"></div>
+                <div class="image">
+                    <img src="../source/products/product-3.png" alt="product-3">
+                </div>
+                <div class="desc">
+                    <span class="title">
+                        <span class="name">Mango people</span>
+                        <span class="type">T-shirt</span>
+                    </span>
+                    <span class="props" data-name="price">$300</span>
+                    <span class="props" data-name="color">Red</span>
+                    <span class="props" data-name="size">Xl</span>
+                    <span class="props" data-name="quantity"><input type="number" min="1" value="2"></span>
+                </div>
+            </div>
+            <div class="product">
+                <div class="close"></div>
+                <div class="image">
+                    <img src="../source/products/product-7.png" alt="product-7">
+                </div>
+                <div class="desc">
+                    <span class="title">
+                        <span class="name">Mango people</span>
+                        <span class="type">T-shirt</span>
+                    </span>
+                    <span class="props" data-name="price">$300</span>
+                    <span class="props" data-name="color">Red</span>
+                    <span class="props" data-name="size">Xl</span>
+                    <span class="props" data-name="quantity"><input type="number" min="1" value="2"></span>
+                </div>
+            </div>
+            <div class="buttons">
+                <button>Clear shopping cart</button>
+                <button>Continue shopping</button>
+            </div>
+        </div>
+        <form class="data" action="#" method="post">
+            <div class="fields">
+                <div class="name">Shipping adress</div>
+
+                <input type="text" placeholder="Bangladesh">
+                <input type="text" placeholder="State">
+                <input type="text" placeholder="Postcode / Zip">
+
+                <button>Get a quote</button>
+            </div>
+            <div class="buy">
+                <div class="props" data-name="Sub total">$900</div>
+                <div class="props big" data-name="Grand total">$900</div>
+                <hr>
+                <input type="submit" value="Proceed to checkout">
+            </div>
+        </form>
+    </div>
+    <div class="subscription">
+        <div class="review">
+            <div class="image">
+                <img src="../source/other/subscription-photo.png" alt="review-photo">
+            </div>
+            <q>Vestibulum quis porttitor dui! Quisque viverra nunc mi, <i>a pulvinar purus condimentum</i></q>
+        </div>
+        <div class="subscribe">
+            <div class="name">
+                <span>Subscribe</span>
+                <span>for our newletter and promotion</span>
+            </div>
+            <form action="#" method="post">
+                <input type="text" placeholder="Enter Your Email">
+                <input type="submit" value="Subscribe">
+            </form>
+        </div>
+    </div>
+</main>
+<footer>
+    <div id="copyright" class="copyright"></div>
+    <div id="social" class="social"></div>
+</footer>
+
+</body>
+</html>

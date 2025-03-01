@@ -1,0 +1,69 @@
+body {
+    font-family: sans-serif !important;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: cornflowerblue !important;
+}
+
+h1 {
+    color: #222;
+    font-size: 28px;
+    line-height: 36px;
+    font-weight: bold;
+}
+
+h2.title {
+    color: coral;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 80px;
+}
+
+p {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 30px;
+    color: #7d7987;
+}
+
+main > .menu {
+    margin: -25px 0 25px;
+}
+
+main > .menu a {
+    color: cornflowerblue !important;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.about-img {
+    border: 1px solid #7c694f;
+    border-radius: 10px;
+    width: 256px;
+}
+
+.form-fields input[type=text],
+.form-fields input[type=email] {
+    width: 200px;
+    height: 30px;
+    outline: none;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    font-size: 14px;
+    line-height: 30px;
+    font-family: inherit;
+}
+
+.form-fields input[type=submit],
+.form-fields input[type=reset] {
+    width: 100px;
+    height: 30px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}

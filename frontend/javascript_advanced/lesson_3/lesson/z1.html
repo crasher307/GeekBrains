@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<button class="load">Load news</button>
+<div class="news"></div>
+
+<script defer>
+    'use strict';
+    const mockDB = [
+        {title: 'News 1', content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, itaque?'},
+        {title: 'News 2', content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, velit!'},
+    ];
+    const newsButton = document.querySelector('.load');
+    const newsBlock = document.querySelector('.news');
+
+    function fetchNews() {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                const error = Math.random() * 100 <= 10;
+                !error ? resolve(mockDB) : reject(new Error('Не удалось загрузить'));
+            }, 2000);
+        });
+    }
+
+    function renderNews(news) {
+        return `<div class="block"><h2>${news.title}</h2><p>${news.content}</p></div>`;
+    }
+
+    function clearNews() {
+        newsBlock.querySelectorAll('.block').forEach(e => e.remove());
+    }
+
+    newsButton.addEventListener('click', () => {
+        newsButton.disabled = true;
+        fetchNews()
+            .then((data) => {
+                clearNews();
+                data.forEach(news => newsBlock.insertAdjacentHTML('beforeend', renderNews(news)));
+            })
+            .catch((err) => {
+                clearNews();
+                newsBlock.insertAdjacentHTML('beforeend', renderNews({title: 'Error', content: err.message}));
+                console.error(err.message);
+            })
+            .finally(() => {
+                newsButton.disabled = false;
+            });
+    });
+</script>
+
+</body>
+</html>

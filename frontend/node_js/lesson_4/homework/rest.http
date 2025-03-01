@@ -1,0 +1,25 @@
+### getUsers
+GET http://localhost:3000/users
+
+### getUsersById
+GET http://localhost:3000/users/1
+
+### addUser
+POST http://localhost:3000/users
+Content-type: application/json
+
+{
+  "username": "testUser",
+  "password": "qwerty1234"
+}
+
+### updateUser
+PUT http://localhost:3000/users/1
+Content-type: application/json
+
+{
+  "password": "newPassword"
+}
+
+### deleteUser
+DELETE http://localhost:3000/users/2

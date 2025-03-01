@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .category {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .products {
+            display: flex;
+            flex-direction: column;
+            gap: inherit;
+            width: 100%;
+        }
+
+        .product .title {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .product .desc {
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="category">
+        <label for="select">Выберите категорию:</label>
+        <select id="select"></select>
+    </div>
+    <div class="products"></div>
+</div>
+
+<script defer>
+    'use strict';
+
+    const products = [
+        {
+            id: 1,
+            name: "Ноутбук",
+            category: "Электроника",
+        },
+        {
+            id: 2,
+            name: "Смартфон",
+            category: "Электроника",
+        },
+        {
+            id: 3,
+            name: "Кофемашина",
+            category: "Бытовая техника",
+        },
+        {
+            id: 4,
+            name: "Фотокамера",
+            category: "Электроника",
+        },
+        {
+            id: 5,
+            name: "Микроволновая печь",
+            category: "Бытовая техника",
+        },
+        {
+            id: 6,
+            name: "Книга",
+            category: "Книги",
+        },
+        {
+            id: 7,
+            name: "Футболка",
+            category: "Одежда",
+        },
+        {
+            id: 8,
+            name: "Шапка",
+            category: "Одежда",
+        },
+        {
+            id: 9,
+            name: "Стул",
+            category: "Мебель",
+        },
+        {
+            id: 10,
+            name: "Стол",
+            category: "Мебель",
+        },
+    ];
+
+    const selectEl = document.querySelector('#select');
+    const productsEl = document.querySelector('.products');
+
+    selectEl.innerHTML = [
+        '<option value="" selected disabled>Не выбрано</option>',
+        ...new Set(products.map(e => {
+            return `<option value="${e.category}">${e.category}</<option>`;
+        }))
+    ].join('');
+
+    selectEl.addEventListener('change', ({target}) => {
+        productsEl.innerHTML = products
+            .filter(e => e.category === target.value)
+            .map(e => ([
+                `<div class="product" data-category="${e.category}" data-id="${e.id}">`,
+                `<div class="title">${e.name}</div>`,
+                `<div class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, ex.</div>`,
+                `</div>`,
+            ].join('')))
+            .join('');
+    });
+</script>
+
+</body>
+</html>

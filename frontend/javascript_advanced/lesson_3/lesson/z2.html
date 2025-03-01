@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f3f4f6;
+            padding: 20px;
+        }
+
+        select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #d1d1d1;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js" defer></script>
+</head>
+<body>
+
+<h1>Создайте свой мебельный гарнитур</h1>
+<div class="furniture-option">
+    <h2>Стол</h2>
+    <label for="table-color"> Цвет:</label>
+    <select id="table-color">
+        <option value="" disabled selected>Выберите цвет</option>
+        <option value="brown">Коричневый</option>
+        <option value="white">Белый</option>
+    </select>
+</div>
+<div class="furniture-option">
+    <h2>Стул</h2>
+    <label for="chair-material">Материал:</label>
+    <select id="chair-material">
+        <option value="" disabled selected>Выберите материал</option>
+        <option value="wood">Дерево</option>
+        <option value="metal">Металл</option>
+    </select>
+</div>
+<div class="buttons">
+    <button id="save-btn">Сохранить комплект</button>
+    <button id="load-btn">Загрузить последний комплект</button>
+    <button id="clear-btn">Очистить настройки</button>
+</div>
+
+<script defer>
+    'use strict';
+
+    const buttons = document.querySelector('.buttons');
+    const tableSelect = document.querySelector('#table-color');
+    const chairSelect = document.querySelector('#chair-material');
+
+    buttons.addEventListener('click', (e) => {
+        switch (e.target.id) {
+            case 'save-btn':
+                Cookies.set('tableSelect', tableSelect.value);
+                Cookies.set('chairSelect', chairSelect.value);
+                console.log('Settings saved');
+                break;
+            case 'load-btn':
+                const cTable = Cookies.get('tableSelect');
+                const cChair = Cookies.get('chairSelect');
+                if (cTable.length > 0) {
+                    tableSelect.value = cTable;
+                }
+                if (cChair.length > 0) {
+                    chairSelect.value = cChair;
+                }
+                console.log('Settings loaded');
+                break;
+            case 'clear-btn':
+                Cookies.remove('tableSelect');
+                Cookies.remove('chairSelect');
+                console.log('Settings cleared');
+                break;
+        }
+    });
+</script>
+
+</body>
+</html>

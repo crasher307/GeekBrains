@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="ru">
+<head>
+    <title>Регистрация</title>
+    <!-- meta http-equiv -->
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="description ...">
+    <meta name="keywords" content="keywords, ...">
+    <!-- icon -->
+    <link type="image/x-icon" rel="shortcut icon" href="../source/other/favicon.ico">
+    <!-- style -->
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <!-- javascript -->
+    <script type="text/javascript" src="../source/loading.js" async></script>
+    <script type="text/javascript" src="../source/shop-config.js" defer></script>
+</head>
+<body data-loading>
+
+<header>
+    <a class="logo" href="#"></a>
+    <a class="search" href="#"></a>
+    <div class="menu" id="menu"></div>
+    <a class="profile" href="#"></a>
+    <a class="basket" href="#" data-count="5"></a>
+</header>
+<main>
+    <div class="breadcrumbs">
+        <div class="name">Shopping cart</div>
+    </div>
+    <div class="registration">
+        <form action="#" method="post">
+            <span>Your Name</span>
+            <input type="text" name="first_name" placeholder="First Name">
+            <input type="text" name="last_name" placeholder="Last Name">
+            <div class="group-check">
+                <input id="male" type="radio" name="sex" value="Male"><label for="male">Male</label>
+                <input id="female" type="radio" name="sex" value="Female"><label for="female">Female</label>
+                <input id="other" type="radio" name="sex" value="Other"><label for="other">Other</label>
+            </div>
+            <span>Login details</span>
+            <input type="email" name="email" placeholder="Email">
+            <input type="password" name="password" placeholder="Password">
+            <span class="desc">Please use 8 or more characters, with at least 1 number and a mixture of uppercase and lowercase letters</span>
+            <button>Join now</button>
+        </form>
+        <div class="info">
+            <span class="title">Loyalty has its perks</span>
+            <span class="desc">Get in on the loyalty program where you can earn points and unlock serious perks. Starting with these as soon as you join:</span>
+            <span class="props">15% off welcome offer</span>
+            <span class="props">Free shipping, returns and exchanges on all orders</span>
+            <span class="props">$10 off a purchase on your birthday</span>
+            <span class="props">Early access to products</span>
+            <span class="props">Exclusive offers & rewards</span>
+        </div>
+    </div>
+    <div class="subscription">
+        <div class="review">
+            <div class="image">
+                <img src="../source/other/subscription-photo.png" alt="review-photo">
+            </div>
+            <q>Vestibulum quis porttitor dui! Quisque viverra nunc mi, <i>a pulvinar purus condimentum</i></q>
+        </div>
+        <div class="subscribe">
+            <div class="name">
+                <span>Subscribe</span>
+                <span>for our newletter and promotion</span>
+            </div>
+            <form action="#" method="post">
+                <input type="text" placeholder="Enter Your Email">
+                <input type="submit" value="Subscribe">
+            </form>
+        </div>
+    </div>
+</main>
+<footer>
+    <div id="copyright" class="copyright"></div>
+    <div id="social" class="social"></div>
+</footer>
+
+</body>
+</html>

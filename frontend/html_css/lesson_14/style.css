@@ -1,0 +1,480 @@
+/* <!-- <editor-folder Base> --> */
+@font-face {
+    font-family: Lato;
+    src: url("../../files/fonts/Lato/Lato-Thin.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 100;
+}
+@font-face {
+    font-family: Lato;
+    src: url("../../files/fonts/Lato/Lato-ThinItalic.ttf") format("truetype");
+    font-style: italic;
+    font-weight: 100;
+}
+@font-face {
+    font-family: Lato;
+    src: url("../../files/fonts/Lato/Lato-Light.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 300;
+}
+@font-face {
+    font-family: Lato;
+    src: url("../../files/fonts/Lato/Lato-LightItalic.ttf") format("truetype");
+    font-style: italic;
+    font-weight: 300;
+}
+@font-face {
+    font-family: Lato;
+    src: url("../../files/fonts/Lato/Lato-Regular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 400;
+}
+@font-face {
+    font-family: Lato;
+    src: url("../../files/fonts/Lato/Lato-Italic.ttf") format("truetype");
+    font-style: italic;
+    font-weight: 400;
+}
+@font-face {
+    font-family: Lato;
+    src: url("../../files/fonts/Lato/Lato-Bold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 700;
+}
+@font-face {
+    font-family: Lato;
+    src: url("../../files/fonts/Lato/Lato-BoldItalic.ttf") format("truetype");
+    font-style: italic;
+    font-weight: 700;
+}
+@font-face {
+    font-family: Lato;
+    src: url("../../files/fonts/Lato/Lato-Black.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 900;
+}
+@font-face {
+    font-family: Lato;
+    src: url("../../files/fonts/Lato/Lato-BlackItalic.ttf") format("truetype");
+    font-style: italic;
+    font-weight: 900;
+}
+::selection {
+    background: #F16D7F;
+    color: #fff;
+}
+a {
+    color: #F16D7F;
+    text-decoration: none;
+    transition: none;
+}
+a:hover, a:focus {
+    color: inherit;
+}
+body {
+    font-family: "Lato", sans-serif;
+    background: #fff;
+    color: #222;
+
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+/* <!-- </editor-folder--> */
+:root {
+    --width-max: 1180px;
+    --height-header: 75px;
+    --height-footer: 0px;
+    --gap-block: 60px;
+    --gap-elements: 30px;
+}
+main > div {
+    /*border: 2px solid #f00;*/
+}
+main > div > div {
+    /*border: 2px solid #0ff;*/
+}
+/* <!-- <editor-folder Site> --> */
+header, main, footer,
+header > div, main > div, footer > div {
+    box-sizing: border-box;
+    display: flex;
+    margin: 0 auto;
+    width: 100%;
+}
+header, main, footer {
+    gap: var(--gap-block);
+}
+header > div, main > div, footer > div {
+    max-width: var(--width-max);
+    padding: 0 20px;
+}
+/* <!-- </editor-folder--> */
+/* <!-- <editor-folder Header & Menu> --> */
+header {
+    justify-content: center;
+    height: var(--height-header);
+    background: #222;
+}
+header > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 30px;
+    overflow: visible;
+}
+header .icon {
+    width: 29px;
+}
+header .icon:nth-child(3) {
+    margin: 0 0 0 auto;
+}
+header .icon.logo {
+    background: url("./img/icons/logo.svg") no-repeat center center / contain;
+    width: 44px;
+}
+header .icon.search {
+    background: url("./img/icons/search.svg") no-repeat center center / contain;
+}
+header .icon.menu {
+    background: url("./img/icons/menu.svg") no-repeat center center / contain;
+    overflow: visible;
+}
+header .icon.menu > div {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    padding: 30px;
+    gap: 20px;
+    top: 100%;
+    right: -138px;
+    width: 232px;
+    background: #FFF;
+    box-shadow: 6px 4px 35px #00000035;
+    z-index: 100;
+
+    font-size: 14px;
+    font-weight: 400;
+    color: #6F6E6E;
+}
+header .icon.menu:hover > div, header .icon.menu:focus > div {
+    display: flex;
+}
+header .icon.menu > div:before {
+    display: block;
+    text-transform: uppercase;
+    content: "Menu";
+
+    color: #000;
+    font-weight: 700;
+}
+header .icon.menu .cat {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 0 0 0 20px;
+    gap: 10px;
+    cursor: default;
+}
+header .icon.menu .cat > .name {
+    margin: 0 0 0 -20px;
+    color: #F16D7F;
+    text-transform: uppercase;
+}
+header .icon.menu a {
+    color: inherit;
+}
+header .icon.profile {
+    background: url("./img/icons/profile.svg") no-repeat center center / contain;
+}
+header .icon.basket {
+    background: url("./img/icons/basket.svg") no-repeat center center / contain;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header .icon.basket span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #F16D7F;
+    margin: -23px -23px 0 0;
+    width: 19px;
+    height: 19px;
+    color: #FFF;
+    font-size: 12px;
+    font-weight: 400;
+    border-radius: 50%;
+}
+/* <!-- </editor-folder--> */
+/* <!-- <editor-folder Main> --> */
+main {
+    min-height: calc(100vh - var(--height-header) - var(--height-footer)); /* 100% height - (header + footer) */
+    flex-direction: column;
+    justify-content: stretch;
+    padding: 0 0 var(--gap-block);
+}
+main > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px 0;
+}
+/* <!-- </editor-folder--> */
+/* <!-- <editor-folder Promo> --> */
+.promo {
+    background: #F1E4E6;
+    max-width: none;
+}
+.promo .card {
+    display: grid;
+    grid-template-columns: auto 420px;
+    gap: 0 60px;
+    max-width: var(--width-max);
+}
+.promo .card > * {
+    margin: 0;
+    padding: 0 16px;
+    border-left: 12px solid #F16D7F;
+    color: #222;
+    font-size: 32px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.promo .card > :nth-child(1) {
+    grid-row: 1/3;
+    padding: 0;
+    border: none;
+}
+.promo .card > :nth-child(2) {
+    align-self: end;
+    font-size: 48px;
+    font-weight: 900;
+}
+.promo .card > :nth-child(3) {
+    align-self: start;
+}
+.promo .card strong {
+    color: #F16D7F;
+}
+/* <!-- </editor-folder--> */
+/* <!-- <editor-folder Offers> --> */
+.offers {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: var(--gap-elements);
+    color: #FFF;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+.offers > :nth-child(4n) {
+    grid-column: 1/4;
+}
+.offers .card > a,
+.offers .card > div {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #211616B2;
+    color: inherit;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.offers .card strong {
+    color: #F16D7F;
+    font-size: 24px;
+    font-weight: 700;
+}
+/* <!-- </editor-folder--> */
+/* <!-- <editor-folder Products> --> */
+.products {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: var(--gap-elements);
+    color: #5D5D5D;
+    font-size: 14px;
+    font-weight: 300;
+}
+.products > .title,
+.products > .more {
+    display: flex;
+    grid-column: 1/4;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px auto;
+    color: #9F9F9F;
+    font-size: 14px;
+    font-weight: 400;
+}
+.products > .title strong {
+    color: #222;
+    font-size: 30px;
+    font-weight: inherit;
+}
+.products .card {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 14px;
+    background: #F8F8F8;
+    color: #5D5D5D;
+    font-weight: 400;
+    z-index: 0;
+}
+.products .card > a,
+.products .card > img {
+    margin: -20px -20px 0;
+}
+.products .card > a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.products .card > a:hover,
+.products .card > a:focus {
+    background: #3A3838;
+}
+.products .card > a:hover:after,
+.products .card > a:focus:after {
+    display: flex;
+    position: absolute;
+    justify-content: right;
+    align-items: center;
+    background: url("./img/icons/basket.svg") no-repeat 12px center;
+    padding: 0 12px;
+    width: 116px;
+    height: 44px;
+    color: #FFF;
+    font-size: 14px;
+    content: "Add to Cart";
+    border: 1px solid #FFF;
+}
+.products .card > a:hover > img,
+.products .card > a:focus > img {
+    opacity: 0.14;
+}
+.products .card > .title {
+    color: #000;
+    font-size: 13px;
+}
+.products .card > .desc {
+    font-size: 14px;
+    font-weight: 300;
+}
+.products .card > .price {
+    color: #F16D7F;
+    font-size: 16px;
+}
+.products .more a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 212px;
+    height: 48px;
+    border: 1px solid #F26376;
+    color: #F26376;
+    font-size: 16px;
+}
+.products .more a:hover {
+    background: #F26376;
+    color: #FFF;
+}
+/* <!-- </editor-folder--> */
+/* <!-- <editor-folder Tablet & Mobile> --> */
+@media (orientation: portrait), (max-width: 1024px) {
+    :root {
+        --gap-block: 70px;
+        --gap-elements: 15px;
+    }
+    /* <!-- <editor-folder Promo> --> */
+    .promo .card {
+        grid-template-columns: auto 330px;
+    }
+    .promo .card > * {
+        font-size: 24px;
+    }
+    .promo .card > :nth-child(2) {
+        font-size: 44px;
+    }
+    /* <!-- </editor-folder--> */
+    /* <!-- <editor-folder Products> --> */
+    .products {
+        grid-template-columns: repeat(2, auto);
+    }
+    .products > .title,
+    .products > .more {
+        grid-column: 1/3;
+    }
+    .products > .title {
+        margin-bottom: 70px;
+    }
+    /* <!-- </editor-folder--> */
+}
+@media (max-width: 768px) {
+    :root {
+        --gap-block: 60px;
+        --gap-elements: 15px;
+    }
+    /* <!-- <editor-folder Header & Menu> --> */
+    header .icon.menu > div {
+        right: -20px;
+        width: calc(100vw + 40px);
+    }
+    header .icon.profile,
+    header .icon.basket {
+        display: none;
+    }
+    /* <!-- </editor-folder--> */
+    /* <!-- <editor-folder Promo> --> */
+    .promo {
+        justify-content: center;
+        height: 360px;
+    }
+    .promo .card {
+        display: flex;
+        flex-direction: column;
+    }
+    .promo .card > * {
+        font-size: 20px;
+    }
+    .promo .card > :nth-child(1) {
+        display: none;
+    }
+    .promo .card > :nth-child(2) {
+        font-size: 38px;
+    }
+    .promo .card > :nth-child(2),
+    .promo .card > :nth-child(3) {
+        align-self: start;
+    }
+    /* <!-- </editor-folder--> */
+    /* <!-- <editor-folder Offers> --> */
+    .offers {
+        display: flex;
+        flex-direction: column;
+    }
+    .offers .card {
+        display: flex;
+        justify-content: center;
+        max-width: 100%;
+        overflow: hidden;
+    }
+    .offers .card img {
+        width: auto;
+        max-width: 180vw;
+    }
+    /* <!-- </editor-folder--> */
+    /* <!-- <editor-folder Products> --> */
+    .products {
+        display: flex;
+        flex-direction: column;
+    }
+    /* <!-- </editor-folder--> */
+}
+/* <!-- </editor-folder--> */

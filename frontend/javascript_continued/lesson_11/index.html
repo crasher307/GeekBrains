@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="ru">
+<head>
+    <title>Корзина</title>
+    <!-- meta http-equiv -->
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="description ...">
+    <meta name="keywords" content="keywords, ...">
+    <!-- icon -->
+    <link type="image/x-icon" rel="shortcut icon" href="../../advanced_html_css/source/other/favicon.ico">
+    <!-- style -->
+    <link type="text/css" rel="stylesheet" href="../../advanced_html_css/lesson_6/style.css">
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <!-- javascript -->
+    <script type="text/javascript" src="../../advanced_html_css/source/loading.js" async></script>
+    <script type="text/javascript" src="../../advanced_html_css/source/shop-config.js" defer></script>
+    <script type="text/javascript" src="data.js" defer></script>
+    <script type="text/javascript" src="script.js" defer></script>
+</head>
+<body data-loading>
+
+<header>
+    <a class="logo" href="#"></a>
+    <a class="search" href="#"></a>
+    <input id="menu" type="checkbox">
+    <label class="menu" for="menu">
+        <div id="menuElements"></div>
+    </label>
+    <a class="profile" href="#"></a>
+    <a class="basket" href="#" data-count="5"></a>
+</header>
+<main>
+    <div class="breadcrumbs">
+        <div class="name">Shopping cart</div>
+    </div>
+    <div class="cart">
+        <div class="product-list">
+
+
+            <!-- MAIN BLOCK :START -->
+            <div id="productTemplate">
+                <div class="product">
+                    <div class="close"></div>
+                    <div class="image">
+                        <img src="" alt="">
+                    </div>
+                    <div class="desc">
+                        <span class="title">
+                            <span class="name"></span>
+                            <span class="type"></span>
+                        </span>
+                        <span class="props price" data-name="price">Name</span>
+                        <span class="props color" data-name="color">Color</span>
+                        <span class="props size" data-name="size">Size</span>
+                        <span class="props quantity" data-name="quantity">
+                            <input type="number" min="1" value="1">
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <!-- MAIN BLOCK :END -->
+
+
+            <div class="buttons">
+                <button>Clear shopping cart</button>
+                <button>Continue shopping</button>
+            </div>
+        </div>
+        <form class="data" action="#" method="post">
+            <div class="fields">
+                <div class="name">Shipping adress</div>
+
+                <input type="text" placeholder="Bangladesh">
+                <input type="text" placeholder="State">
+                <input type="text" placeholder="Postcode / Zip">
+
+                <button>Get a quote</button>
+            </div>
+            <div class="buy">
+                <div class="props" data-name="Sub total">$900</div>
+                <div class="props big" data-name="Grand total">$900</div>
+                <hr>
+                <input type="submit" value="Proceed to checkout">
+            </div>
+        </form>
+    </div>
+    <div class="subscription">
+        <div class="review">
+            <div class="image">
+                <img src="../../advanced_html_css/source/other/subscription-photo.png" alt="review-photo">
+            </div>
+            <q>Vestibulum quis porttitor dui! Quisque viverra nunc mi, <i>a pulvinar purus condimentum</i></q>
+        </div>
+        <div class="subscribe">
+            <div class="name">
+                <span>Subscribe</span>
+                <span>for our newletter and promotion</span>
+            </div>
+            <form action="#" method="post">
+                <input type="text" placeholder="Enter Your Email">
+                <input type="submit" value="Subscribe">
+            </form>
+        </div>
+    </div>
+</main>
+<footer>
+    <div id="copyright" class="copyright"></div>
+    <div id="social" class="social"></div>
+</footer>
+
+</body>
+</html>

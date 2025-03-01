@@ -1,0 +1,34 @@
+@import "vars", "clear", "mixins";
+
+body #app {
+  @include flexColumn(stretch, space-between);
+  min-height: 100vh;
+
+  //& > * {
+  //  border: 1px solid #f0f;
+  //}
+}
+
+header {
+  @include flexRow(space-between, center);
+  margin: 50px 0 60px;
+  padding: 0 $pd-desktop;
+}
+
+main {
+  margin-bottom: auto;
+
+  & > * {
+    @include flexColumn(stretch, stretch, 90px);
+
+    & > * {
+      padding: 0 $pd-desktop;
+    }
+  }
+}
+
+footer {
+  @include flexRow(space-between, start, 10px);
+  margin: 90px 0 120px;
+  padding: 0 $pd-desktop;
+}

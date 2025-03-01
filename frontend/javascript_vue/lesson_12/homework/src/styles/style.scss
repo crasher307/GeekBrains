@@ -1,0 +1,31 @@
+@import "vars", "clear", "mixins";
+
+body #app {
+  @include flexColumn(stretch, space-between);
+  min-height: 100vh;
+
+  //& > * {
+  //  border: 1px solid #f0f;
+  //}
+}
+
+header, main .container > *, footer {
+  padding: 0 max($min-padding, calc((100vw - $size-lg) / 2));
+}
+
+header {
+  @include flexRow(space-between, center);
+  margin: 50px 0 60px;
+}
+
+main {
+  margin-bottom: auto;
+  .container {
+    @include flexColumn(stretch, stretch, 90px);
+  }
+}
+
+footer {
+  @include flexRow(space-between, start, 10px);
+  margin: 90px 0 120px;
+}

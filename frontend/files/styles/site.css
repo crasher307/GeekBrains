@@ -1,0 +1,72 @@
+/*** Site settings ***************************************************************************/
+/* <!-- <editor-folder Site settings> --> */
+header,
+main,
+footer {
+    box-sizing:     border-box;
+    display:        block;
+    position:       static;
+    border:         none;
+    border-radius:  0;
+    width:          100%;
+    height:         auto;
+    margin:         0 auto;
+    z-index:        1;
+    overflow:       hidden;
+    color:          inherit;
+}
+/*** Head ***********************************/
+header {
+    height:         50px;
+    padding:        7px 20px;
+    font-size:      28px;
+    font-weight:    bold;
+    background:     #181818;
+    color:          inherit;
+}
+header a {
+    transition:     all 0s ease-in-out;
+    text-decoration:none;
+    color:          inherit;
+}
+/*** Content ********************************/
+main {
+    max-width:      1920px;
+    height:         auto;
+    min-height:     calc(100vh - 100px);
+    padding:        20px;
+    font-size:      1em;
+    line-height:    1.6;
+}
+/*** Footer *********************************/
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height:         50px;
+    padding:        4px 20px;
+    font-size:      16px;
+    border-top:     1px dashed #181818;
+    color:          #9d8563;
+}
+/* <!-- </editor-folder--> */
+/*** For mobile ******************************************************************************/
+/* <!-- <editor-folder Mobile> --> */
+@media (orientation: portrait), (max-width: 768px) {
+    /*** Head ***********************************/
+    header {
+        height:         62px;
+        font-size:      36px;
+    }
+    /*** Content ********************************/
+    main {
+        max-width:      1920px;
+        min-height:     calc(100vh - 138px);
+    }
+    /*** Footer *********************************/
+    footer {
+        height:         76px;
+        font-size:      26px;
+    }
+}
+/* <!-- </editor-folder--> */

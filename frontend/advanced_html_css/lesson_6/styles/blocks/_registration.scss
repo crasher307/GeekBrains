@@ -1,0 +1,136 @@
+// Блок корзины
+.registration {
+  @include flex(space-between, start, $content-gap);
+  padding-top: 60px;
+  padding-bottom: 90px;
+
+  input, button {
+    @include flex;
+    @include font(13px, 300);
+    width: 100%;
+    min-height: 45px;
+    border: 1px solid $color-5;
+  }
+
+  /* <!-- <editor-folder RadioButtons> --> */
+  input[type=radio] {
+    display: none !important;
+
+    & + label {
+      cursor: pointer;
+
+      &:before {
+        @include flex;
+        width: 13px;
+        height: 13px;
+        padding: 2px;
+        border: 1px solid $color-5;
+        border-radius: 50%;
+        content: "";
+      }
+    }
+
+    &:checked + label {
+      &:before {
+        border: 1px solid $color-active;
+        background: url("../source/icons/check.svg") no-repeat center / contain;
+        background-origin: content-box;
+      }
+    }
+  }
+  /* <!-- </editor-folder--> */
+
+  form {
+    @include flexColumn(20px);
+    @include font(16px, 300);
+    width: 360px;
+    max-width: 100%;
+
+    .group-check {
+      @include flex(start, center, 20px);
+      @include font(11px, 300);
+      padding: 10px 0;
+
+      & > * {
+        @include flex(start, center, 5px);
+        position: relative;
+      }
+    }
+
+    .desc {
+      @include font(13px, 300, $color-4);
+      margin-bottom: 20px;
+    }
+
+    button {
+      @include flex(center, center, 20px);
+      @include color($color-active, $color-1);
+      @include fontUpper(14px, 400);
+      padding: 0 30px;
+      width: max-content;
+
+      &:after {
+        @include flex;
+        background: url("../source/icons/arrow.svg") no-repeat center / contain;
+        filter: invert(1);
+        width: 17px;
+        height: 17px;
+        content: "";
+      }
+
+      &:is(:hover, :focus) {
+        @include color($color-active-focus);
+      }
+    }
+  }
+
+  .info {
+    @include flexColumn(20px);
+    @include font(24px, 300);
+    width: 650px;
+    max-width: 100%;
+
+    .title {
+      text-transform: uppercase;
+    }
+
+    .props {
+      @include flex(start, center, 20px);
+
+      &:before {
+        @include flex;
+        background: url("../source/icons/check.svg") no-repeat center / contain;
+        width: 20px;
+        height: 20px;
+        content: "";
+      }
+    }
+  }
+}
+
+// Tablet
+@media (max-width: $size-md), (max-width: $size-sm) and (orientation: portrait) {
+  .registration {
+    padding-top: 40px;
+
+    form, .info {
+      width: auto;
+      max-width: 50%;
+    }
+
+    .info {
+      @include font(16px, 300);
+    }
+  }
+}
+
+// Mobile
+@media (max-width: $size-xs), (max-width: $size-sm) and (orientation: landscape) {
+  .registration {
+    @include flexColumn(40px);
+
+    form, .info {
+      max-width: 100%;
+    }
+  }
+}

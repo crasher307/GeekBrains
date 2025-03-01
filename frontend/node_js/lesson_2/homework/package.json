@@ -1,0 +1,13 @@
+{
+  "name": "307th_pass",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "password generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [],
+  "author": "crasher307",
+  "license": "ISC"
+}

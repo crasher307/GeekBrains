@@ -1,0 +1,8 @@
+@mixin title($fontSize: inherit, $letter: normal, $lineHeight: normal) {
+  font-family: $dm;
+  font-size: $fontSize;
+  font-weight: 400;
+  line-height: $lineHeight;
+  letter-spacing: $letter;
+  color: $baseColor;
+}

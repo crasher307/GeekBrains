@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Каталог</title>
+    <!-- meta http-equiv -->
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="description ...">
+    <meta name="keywords" content="keywords, ...">
+    <!-- icon -->
+    <link type="image/x-icon" rel="shortcut icon" href="../source/other/favicon.ico">
+    <!-- styles -->
+    <link type="text/css" rel="stylesheet" href="../../files/styles/base.css">
+    <link type="text/css" rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="menu">
+        <a class="icon logo" href="#"></a>
+        <a class="icon search" href="#"></a>
+        <div class="icon menu"><div id="menu"></div></div>
+        <a class="icon profile" href="#"></a>
+        <a class="icon basket" href="#">
+            <span>5</span>
+        </a>
+    </div>
+</header>
+<main>
+    <div class="promo catalog">
+        <div class="breadcrumbs">
+            <div class="block">
+                <div class="title">New arrivals</div>
+                <div class="path">Home / Men / <strong>New arrivals</strong></div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="icon left"></div>
+            <img src="../source/other/product-main.png" alt="product-main">
+            <div class="icon right"></div>
+        </div>
+        <div class="desc">
+            <div class="type">Women collection</div>
+            <div class="name">Moschino cheap and chic</div>
+            <div class="desc">
+                Compellingly actualize fully researched processes before proactive outsourcing. Progressively syndicate
+                collaborative architectures before cutting-edge services. Completely visualize parallel core
+                competencies rather than exceptional portals.
+            </div>
+            <div class="price">$561</div>
+            <div class="params">
+                <div class="color">Choose color</div>
+                <div class="size">Choose size</div>
+                <div class="quantity">Quantity</div>
+            </div>
+            <div class="add">Add to Cart</div>
+        </div>
+    </div>
+    <div class="products catalog">
+        <div class="card">
+            <a href="#"><img src="../source/products/product-4.png" alt="product-4"></a>
+            <span class="title">ELLERY X M'O CAPSULE</span>
+            <span class="desc">Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.</span>
+            <span class="price">$52.00</span>
+        </div>
+        <div class="card">
+            <a href="#"><img src="../source/products/product-3.png" alt="product-3"></a>
+            <span class="title">ELLERY X M'O CAPSULE</span>
+            <span class="desc">Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.</span>
+            <span class="price">$52.00</span>
+        </div>
+        <div class="card">
+            <a href="#"><img src="../source/products/product-6.png" alt="product-6"></a>
+            <span class="title">ELLERY X M'O CAPSULE</span>
+            <span class="desc">Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.</span>
+            <span class="price">$52.00</span>
+        </div>
+    </div>
+</main>
+<footer>
+    <div class="subscription">
+        <div class="card">
+            <div class="review">
+                <div class="photo"><img src="../source/other/subscription-photo.png" alt="review-photo"></div>
+                <q>Vestibulum quis porttitor dui! Quisque viverra nunc mi, <i>a pulvinar purus condimentum</i></q>
+            </div>
+            <div class="subscribe">
+                <span><strong>Subscribe</strong>for our newletter and promotion</span>
+                <form action="#" method="post">
+                    <input type="text" placeholder="Enter Your Email">
+                    <input type="submit" value="Subscribe">
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="about">
+        <div class="copyright">
+            © <span id="year">2021</span>  Brand  All Rights Reserved.
+            <script>document.getElementById("year").innerHTML = `2021-${new Date().getFullYear()}`;</script>
+        </div>
+        <div id="social" class="social">
+            <a href="#" class="facebook"></a>
+            <a href="#" class="instagram"></a>
+            <a href="#" class="pinterest"></a>
+            <a href="#" class="twitter"></a>
+        </div>
+    </div>
+</footer>
+
+<script async>
+    const menu = [
+        {
+            name: 'Man',
+            link: '#',
+            sub: [
+                { name: 'Accessories', link: '#' },
+                { name: 'Bags', link: '#' },
+                { name: 'Denim', link: '#' },
+                { name: 'T-Shirts', link: '#' },
+            ],
+        },
+        {
+            name: 'Woman',
+            link: '#',
+            sub: [
+                { name: 'Accessories', link: '#' },
+                { name: 'Jackets & Coats', link: '#' },
+                { name: 'Polos', link: '#' },
+                { name: 'T-Shirts', link: '#' },
+                { name: 'Shirts', link: '#' },
+            ],
+        },
+        {
+            name: 'Kids',
+            link: '#',
+            sub: [
+                { name: 'Accessories', link: '#' },
+                { name: 'Jackets & Coats', link: '#' },
+                { name: 'Polos', link: '#' },
+                { name: 'T-Shirts', link: '#' },
+                { name: 'Shirts', link: '#' },
+                { name: 'Bags', link: '#' },
+            ],
+        },
+    ];
+    document.getElementById('menu').innerHTML = menu.reduce((data, el) => {
+        const links = [`<a class="name" href="${el.link}">${el.name}</a>`];
+        if (el.sub.length > 0) {
+            el.sub.forEach(sub => links.push(`<a href="${sub.link}">${sub.name}</a>`));
+        }
+        data.push(`<div class="cat">${links.join('')}</div>`);
+        return data;
+    }, []).join('');
+</script>
+
+</body>
+</html>

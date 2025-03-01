@@ -1,0 +1,235 @@
+/*** Menu ***********************************/
+/* <!-- <editor-folder Menu> --> */
+main > .menu {
+    display:        flex;
+    align-items:    center;
+    justify-content:center;
+    min-height:     40px;
+    margin:         -22px 0 22px;
+}
+main > .menu a,
+main > .menu a[active]:hover,
+main > .menu a[active]:focus {
+    display:        block;
+    padding:        5px 10px;
+    min-width:      120px;
+    text-align:     center;
+    text-decoration:none;
+    background:     #252525;
+    color:          #9d8563;
+}
+main > .menu a:hover,
+main > .menu a:focus {
+    color:          #eee;
+}
+main > .menu a:hover, main > .menu a[active]:hover,
+main > .menu a:focus, main > .menu a[active]:focus,
+main > .menu a[active] {
+    background:     #181818;
+}
+main > .menu a:first-child {
+    border-radius:  0 0 0 10px;
+}
+main > .menu a:last-child {
+    border-radius:  0 0 10px 0;
+}
+/* <!-- <editor-folder Mobile> --> */
+@media (orientation: portrait), (max-width: 768px) {
+    main > .menu {
+        display:        block;
+        margin:         -20px 0 20px;
+        height:         calc(1.6em + 10px);
+        border-radius:  0 0 10px 10px;
+        overflow:       hidden;
+    }
+    main > .menu:before {
+        display:        block;
+        padding:        5px 20px;
+        min-width:      auto;
+        text-align:     center;
+        content:        "Меню";
+        cursor:         pointer;
+        background:     #252525;
+        color:          #9d8563;
+    }
+    main > .menu:hover,
+    main > .menu:focus {
+        height:         auto;
+    }
+    main > .menu:hover:before,
+    main > .menu:focus:before {
+        background:     #181818;
+    }
+    main > .menu a {
+        padding:        5px 20px;
+        min-width:      auto;
+    }
+    main > .menu a:first-child {
+        border-radius: 0;
+    }
+    main > .menu a:last-child {
+        border-radius: 0 0 10px 10px;
+    }
+}
+/* <!-- </editor-folder--> */
+/* <!-- </editor-folder--> */
+/*** Social links ***************************/
+/* <!-- <editor-folder Social links> --> */
+.social {
+    display:        flex;
+    align-items:    center;
+    justify-content:center;
+}
+.social a {
+    display:        flex;
+    align-items:    center;
+    justify-content:center;
+    width:          30px;
+    height:         30px;
+    margin:         0 5px;
+    border-radius:  50%;
+    overflow:       hidden;
+}
+.social img {
+    width:          120%;
+    height:         120%;
+}
+/* <!-- <editor-folder Mobile> --> */
+@media (orientation: portrait), (max-width: 768px) {
+    .social a {
+        width:          60px;
+        height:         60px;
+    }
+}
+/* <!-- </editor-folder--> */
+/* <!-- </editor-folder--> */
+/*** Groups *********************************/
+/* <!-- <editor-folder Groups> --> */
+.group {
+    display:        flex;
+    flex-wrap:      wrap;
+    align-items:    center;
+    justify-content:flex-start;
+    margin:         0 0 1px 0;
+    padding:        0;
+}
+.group > * {
+    margin:         0 1px 0 0;
+    border-radius:  0;
+}
+.group > :first-child {
+    border-radius:  5px 0 0 5px;
+}
+.group > :last-child {
+    border-radius:  0 5px 5px 0;
+    margin:         0;
+}
+.group > textarea {
+    height:         30px;
+}
+/* <!-- <editor-folder Mobile> --> */
+@media (orientation: portrait), (max-width: 768px) {
+    .group {
+        display:        block;
+        margin:         0;
+    }
+    .group > *,
+    .group > :first-child,
+    .group > :last-child {
+        display:        block;
+        margin:         0 0 5px 0;
+        width:          100%;
+        height:         auto;
+        border-radius:  10px;
+    }
+    .group textarea {
+        height:         160px;
+    }
+}
+/* <!-- </editor-folder--> */
+/* <!-- </editor-folder--> */
+/*** Cards **********************************/
+/* <!-- <editor-folder Cards> --> */
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px;
+    max-width: 350px;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 3px 5px 2px #4f483f;
+}
+.card > * {
+    display: block;
+    padding: 5px 10px;
+}
+.card .head {
+    font-size: 1.4em;
+    font-weight: bold;
+}
+.card a.head,
+.card .head a {
+    text-decoration: none;
+}
+.card img {
+    margin: 10px auto;
+    padding: 0;
+    max-width: calc(100% - 20px);
+    border-radius: 10px;
+}
+.card > p {
+    text-align: justify;
+    text-align-last: left;
+    margin: 0;
+}
+/* <!-- <editor-folder Mobile> --> */
+@media (orientation: portrait), (max-width: 768px) {
+    .card {
+        display: block;
+        margin: 10px 5px;
+        width: 100%;
+    }
+}
+/* <!-- </editor-folder--> */
+/* <!-- </editor-folder--> */
+/* <!-- <editor-folder Groups> --> */
+.cards {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-evenly;
+    flex-flow: wrap;
+}
+.cards > .card {
+    align-self: stretch;
+    justify-content: flex-start;
+}
+.cards > .card > * {
+    display: flex;
+    flex-direction: column;
+    padding: 5px 10px;
+}
+/* <!-- <editor-folder Mobile> --> */
+@media (orientation: portrait), (max-width: 768px) {
+    .cards > .card {
+        max-width: 100%;
+    }
+}
+/* <!-- </editor-folder--> */
+/* <!-- </editor-folder--> */
+/*** Align **********************************/
+/* <!-- <editor-folder Text align> --> */
+.text-left {
+    text-align:     left;
+}
+.text-right {
+    text-align:     right;
+}
+.text-center {
+    text-align:     center;
+}
+.text-justify {
+    text-align:     justify;
+    text-align-last:left;
+}
+/* <!-- </editor-folder--> */

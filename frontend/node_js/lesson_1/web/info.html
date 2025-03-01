@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Info</title>
+    <link rel="stylesheet" href="/style.css">
+    <script src="/counter.js" defer></script>
+</head>
+<body>
+
+<div class="menu">
+    <a href="/">Главная</a>
+    <a href="/about">О нас</a>
+    <a href="/info" active>Информация</a>
+</div>
+
+<div class="content"></div>
+
+<script defer>
+    const createEl = (props = {}) => {
+        const e = document.createElement('div');
+        if (Object.values(props).length > 0) {
+            Object.entries(props).forEach(p => e[p[0]] = p[1]);
+        }
+        return e;
+    };
+    const createLine = (obj, data) => {
+        Object.entries(data).forEach(e => {
+            const props = {
+                innerHTML: e[1],
+                className: `cell cell-${e[0]}`,
+            };
+            obj.appendChild(createEl(props));
+        });
+    };
+
+    fetch('/counter.json').then((response) => {
+        response.json().then((data) => {
+            const content = document.querySelector('.content').appendChild(createEl({className: 'info'}));
+            data.forEach(e => createLine(content, e));
+        });
+    });
+</script>
+
+</body>
+</html>

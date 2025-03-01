@@ -1,0 +1,119 @@
+// Блок подписки
+.subscription {
+  @include flexRow($content-gap, center);
+  @include font(20px, 400, $color-7);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  cursor: default;
+
+  &:before {
+    @include flex;
+    @include absolute;
+    background: url("../source/other/subsription-back.png") no-repeat center / cover;
+    filter: blur(1px);
+    height: 700px;
+    opacity: 0.3;
+    z-index: -1;
+  }
+  
+  &:after {
+    @include flex;
+    @include absolute;
+    background: linear-gradient(180deg, $color-1 10%, rgba(0, 0, 0, 0) 70%);
+    z-index: -1;
+  }
+
+  & > div {
+    @include flexColumn(30px, center);
+    padding: 100px 10px;
+
+    &.review {
+      max-width: 400px;
+
+      .image {
+        @include flex;
+        border-radius: 50%;
+        width: 96px;
+        height: 96px;
+        overflow: hidden;
+
+        img {
+          height: 150%;
+          margin-bottom: -25%;
+        }
+      }
+
+      q {
+        &:before {
+          content: "“";
+        }
+
+        &:after {
+          content: "“";
+        }
+      }
+    }
+
+    &.subscribe {
+      max-width: 560px;
+      width: 100%;
+
+      .name {
+        @include flexColumn;
+        @include fontUpper(18px);
+        line-height: 168%;
+
+        & > :first-child {
+          @include font(24px, 700);
+        }
+      }
+
+      form {
+        @include flexRow;
+        transition: all 0.2s ease-in-out;
+        height: 50px;
+        border-radius: 25px;
+        max-width: 360px;
+        width: 100%;
+        overflow: hidden;
+
+        input {
+          width: 100%;
+          height: 100%;
+
+          &:not([type=submit]) {
+            @include color($color-3);
+          }
+
+          &[type=submit] {
+            max-width: 100px;
+          }
+        }
+
+        &:is(:hover, :focus) {
+          transform: scale(1.01);
+          box-shadow: 0 0 5px #{$color-active}bb;
+        }
+      }
+    }
+  }
+}
+
+// Tablet
+@media (max-width: $size-md), (max-width: $size-sm) and (orientation: portrait) {
+  .subscription {
+    @include flexColumn($content-gap, center);
+    padding-top: 60px;
+    padding-bottom: 100px;
+
+    &:before {
+      filter: blur(0);
+      transform: scale(115%) translate(0, $content-gap + 10px);
+    }
+
+    & > div {
+      padding: 10px;
+    }
+  }
+}

@@ -1,0 +1,173 @@
+@charset "UTF-8";
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  gap: 40px;
+  background: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+  min-height: 100vh;
+  font-family: sans-serif;
+  font-size: 14px;
+}
+
+.container, .feedback, .form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 10px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.container {
+  position: relative;
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.container .product {
+  font-size: 20px;
+  font-weight: bold;
+  color: #444;
+}
+.container .message {
+  font-size: 16px;
+  color: #777;
+}
+.container .update, .container .remove {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 60px;
+  height: 20px;
+  color: #fff;
+  font-size: 12px;
+  box-shadow: inherit;
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+}
+.container .update:is(.update), .container .remove:is(.update) {
+  background: #2277cc;
+}
+.container .update:is(.update):before, .container .remove:is(.update):before {
+  content: "обновить";
+}
+.container .update:is(.remove), .container .remove:is(.remove) {
+  background: #9f4f4f;
+}
+.container .update:is(.remove):before, .container .remove:is(.remove):before {
+  content: "удалить";
+}
+.container .control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+}
+.container .control .update, .container .control .remove {
+  position: relative;
+  top: auto;
+  right: auto;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+input, select, button, textarea {
+  transition: background-color 0.3s ease;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  width: 100%;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+button {
+  background-color: #2277cc;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #4499ee;
+}
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.hide {
+  display: none;
+}
+
+.schedule {
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  max-width: 100%;
+  min-width: max-content;
+  gap: 1px 0;
+}
+.schedule > * {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 10px;
+  background: #EEEEEE;
+  height: 100%;
+}
+.schedule > *:nth-child(5n-4) {
+  justify-content: start;
+}
+.schedule > *:nth-child(5n-2) {
+  justify-content: end;
+}
+.schedule > *:is(:nth-child(1), :nth-child(2), :nth-child(3), :nth-child(4), :nth-child(5)) {
+  background: #3399DD;
+  color: #FFFFFF;
+  font-weight: bold;
+}
+.schedule > *:is(:nth-child(10n), :nth-child(10n-1), :nth-child(10n-2), :nth-child(10n-3), :nth-child(10n-4)) {
+  background: #FFFFFF;
+}
+.schedule > *:nth-child(5n) {
+  border-radius: 0 5px 5px 0;
+}
+.schedule > *:nth-child(5n-4) {
+  border-radius: 5px 0 0 5px;
+}
+.schedule button {
+  padding: 5px 10px;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+.schedule button.signUp {
+  background: #3f8f3f;
+}
+.schedule button.cancel {
+  background: #9f4f4f;
+}
+.schedule button:disabled {
+  background: #DDDDDD;
+}
+
+/*# sourceMappingURL=style.css.map */
